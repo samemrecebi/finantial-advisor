@@ -1,8 +1,8 @@
 import express from 'express';
 
-import postgresClient from './src/config/db.js';
+import postgresClient from './config/db.js';
 
-import authenticateToken from './src/Middleware/auth.js';
+import authenticateToken from './Middleware/auth.js';
 
 
 const app = express();
