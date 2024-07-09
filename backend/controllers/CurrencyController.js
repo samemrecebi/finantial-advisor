@@ -11,7 +11,7 @@ const currencyApiKey = 'API_KEY_HERE';
 
 // Historical currency data API that returns data for a specific date
 // !!! currency type must be written in uppercase letters !!!
-router.get('/:base_currency', async (req, res) => {
+router.get('/:base_currency',authenticateToken, async (req, res) => {
     const { base_currency = req.params.base_currency , 
             date = '2024-07-08' } = req.query;
 
