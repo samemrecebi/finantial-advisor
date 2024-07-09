@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 
 
-const JWT_SECRET = 'cs308Project'
+const JWT_SECRET = 'interntech_token'
 
 
 const authenticateToken = (req, res, next) => {
