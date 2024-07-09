@@ -6,8 +6,8 @@ import authenticateToken from '../Middleware/auth.js';
 const router = express.Router();
 
 
-// API Key
-const apiKey = 'API_KEY_HERE';
+// Currency API key from https://app.currencyapi.com/
+const currencyApiKey = 'API_KEY_HERE';
 
 // Historical currency data API that returns data for a specific date
 // !!! currency type must be written in uppercase letters !!!
@@ -16,10 +16,9 @@ router.get('/:base_currency', async (req, res) => {
             date = '2024-07-08' } = req.query;
 
     const options = {
-        //this currency API is from https://app.currencyapi.com/
         uri: 'https://api.currencyapi.com/v3/historical',
         qs: {
-            apikey: apiKey,
+            apikey: currencyApiKey,
             base_currency: base_currency,
             date: date
         },
