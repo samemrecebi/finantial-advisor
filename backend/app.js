@@ -1,12 +1,13 @@
 import express from 'express';
-
 import postgresClient from './config/db.js';
-
 import authenticateToken from './Middleware/auth.js';
+import currrenciesRouter from './controllers/CurrencyController.js';
 
 
 const app = express();
 app.use(express.json())
+
+app.use('/api/currencies', currrenciesRouter);
 
 // Function to test the database connection
 const checkDbConnection = async () => {
