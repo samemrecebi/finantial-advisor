@@ -28,16 +28,9 @@ const SignUpForm = () => {
               <label className="block text-sm font-medium mb-1">Password</label>
               <input type="password" className="block w-full p-2 rounded border text-black" placeholder="********" />
             </div>
-            <div className="mb-3">
+            <div className="mb-4">
               <label className="block text-sm font-medium mb-1">Confirm Password</label>
               <input type="password" className="block w-full p-2 rounded border text-black" placeholder="********" />
-            </div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="flex items-center">
-                <input type="checkbox" className="form-checkbox" />
-                <span className="ml-2 text-xs">Remember me?</span>
-              </label>
-              <a href="#" className="text-xs text-blue-400 hover:underline">Forgot Password?</a>
             </div>
             <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Sign Up</button>
           </form>
@@ -49,7 +42,7 @@ const SignUpForm = () => {
           <h1 className="text-2xl font-bold mb-4">Hello!</h1>
           <p className="mb-4 text-sm text-center">Embark on a journey with our specialized financial assistant powered by OpenAI</p>
           <p className='mb-4 text-lg font-bold'>OR</p>
-          <p className="mb-4 text-sm">Sign in with your Fintech Account</p>
+          <p className="mb-4 text-sm">Sign in with your Fintech account</p>
           <Link href="/signin" className="btn btn-lg btn-primary text-white font-bold py-2 px-4 rounded mb-4">Sign In</Link>
         </div>
       </div>
