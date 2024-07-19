@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation'; // Use the correct router hook for the latest Next.js version
+import { useRouter } from 'next/navigation';
 
 const ChatPage = () => {
   const router = useRouter();
@@ -16,13 +16,34 @@ const ChatPage = () => {
       isUser: false,
     },
   ]);
-
   const [input, setInput] = useState('');
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (input.trim() !== '') {
-      setMessages([...messages, { text: input, isUser: true }]);
+      const userMessage = { text: input, isUser: true };
+      setMessages([...messages, userMessage]);
       setInput('');
+
+      // Send the message to the backend API
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ messages: [...messages, userMessage] }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const botMessage = data.choices[0].message;
+          setMessages([...messages, userMessage, { text: botMessage.content, isUser: false }]);
+        } else {
+          console.error('Failed to get a response from the backend');
+        }
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
     }
   };
 
