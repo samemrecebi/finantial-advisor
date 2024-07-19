@@ -68,7 +68,7 @@ router.post('/register', async (req, res) => {
 // Update User API
 router.put('/update', authenticateToken, async (req, res) => {
     try {
-        const { username, password, first_name, last_name } = req.body;
+        const { username, password, first_name, last_name, risk_degree} = req.body;
 
         if (!username) {
             return res.status(400).json({ message: "Username is required." });
@@ -94,6 +94,10 @@ router.put('/update', authenticateToken, async (req, res) => {
             fields.push(`last_name = $${index++}`);
             values.push(last_name);
         }
+        if (risk_degree) {
+            fields.push(`risk_degree = $${index++}`);
+            values.push(risk_degree);
+        }
 
         values.push(username); // Push username as the last value for WHERE clause
 
@@ -107,7 +111,31 @@ router.put('/update', authenticateToken, async (req, res) => {
         console.log("Error occurred", error.message);
         return res.status(400).json({ message: error.message });
     }
-})
+});
+
+router.post('/getUserDetails', async (req, res) => {
+    try {
+        const { username } = req.body;
+        const text = "SELECT * FROM users WHERE username = $1";
+        const values = [username];
+
+        const { rows } = await postgresClient.query(text, values);
+
+        if (!rows.length) {
+            console.log("User not found.");
+            return res.status(404).json({ message: "User not found." });
+        }
+
+        console.log("User details retrieved successfully.");
+        return res.status(200).json(rows[0]);
+
+    } catch (error) {
+        console.log("Error occurred", error.message);
+        return res.status(400).json({ message: error.message });
+    }
+});
+
+
 
 
 
