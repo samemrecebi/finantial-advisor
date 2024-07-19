@@ -36,6 +36,7 @@ const ChatPage = () => {
 
         if (response.ok) {
           const data = await response.json();
+          console.log('Received response:', data);
           const botMessage = data.choices[0].message;
           setMessages([...messages, userMessage, { text: botMessage.content, isUser: false }]);
         } else {
