@@ -15,18 +15,38 @@ import { Button, Drawer } from 'flowbite-react';
 function ChatPage() {
   const router = useRouter();
   const [messages, setMessages] = useState<
-  { text: string; isUser: boolean; index: number }[]
+  { text: string; isUser: boolean }[]
   >([]);
 
   const [input, setInput] = useState('');
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (input.trim() !== '') {
-      setMessages([
-        ...messages,
-        { text: input, isUser: true, index: messages.length + 1 },
-      ]);
+      const userMessage = { text: input, isUser: true };
+      setMessages([...messages, userMessage]);
       setInput('');
+
+      // Send the message to the backend API
+      try {
+        const response = await fetch('/api/chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ messages: [...messages, userMessage] }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Received response:', data);
+          const botMessage = data.choices[0].message;
+          setMessages([...messages, userMessage, { text: botMessage.content, isUser: false }]);
+        } else {
+          console.error('Failed to get a response from the backend');
+        }
+      } catch (error) {
+        console.error('Error sending message:', error);
+      }
     }
   };
 
@@ -76,9 +96,9 @@ function ChatPage() {
             <Image src="/logo.png" alt="Fintech" width={300} height={400} />
           </div>
         ) : (
-          messages.map((message) => (
+          messages.map((message, index) => (
             <div
-              key={message.index}
+              key={index}
               className={`flex items-start mb-4 ${message.isUser ? 'justify-end' : 'justify-start'}`}
             >
               {!message.isUser && (
