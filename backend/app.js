@@ -2,6 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import postgresClient from './config/db.js';
+import { SearchClient, AzureKeyCredential } from '@azure/search-documents';
 
 dotenv.config();
 
@@ -16,6 +17,17 @@ const headers = {
   'Content-Type': 'application/json',
   'api-key': GPT4V_KEY,
 };
+
+// Azure Cognitive Search configuration
+const searchEndpoint = process.env.AZURE_SEARCH_ENDPOINT;
+const searchApiKey = process.env.AZURE_SEARCH_API_KEY;
+const searchIndexName = process.env.AZURE_SEARCH_INDEX;
+
+const searchClient = new SearchClient(
+  searchEndpoint,
+  searchIndexName,
+  new AzureKeyCredential(searchApiKey)
+);
 
 // Few-shot examples to guide the model
 const fewShotExamples = [
@@ -37,7 +49,7 @@ const fewShotExamples = [
   },
 ];
 
-// Function to call Azure OpenAIApi
+// Function to call Azure OpenAI API
 const callOpenAIApi = async (messages) => {
   // Transform messages to the format expected by the OpenAI API
   const transformedMessages = messages.map((message) => ({
@@ -68,6 +80,21 @@ const callOpenAIApi = async (messages) => {
   }
 };
 
+// Function to query Azure Cognitive Search
+const querySearchIndex = async (query) => {
+  try {
+    const searchResults = await searchClient.search(query);
+    const results = [];
+    for await (const result of searchResults.results) {
+      results.push(result);
+    }
+    return results;
+  } catch (error) {
+    console.error(`Failed to query search index. Error: ${error.message}`);
+    return [];
+  }
+};
+
 // Route to handle chat requests
 app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
@@ -79,7 +106,26 @@ app.post('/api/chat', async (req, res) => {
   }
 
   try {
-    const openAIResponse = await callOpenAIApi(messages);
+    // Extract the latest user message for search query
+    const latestUserMessage = messages.filter((message) => message.isUser).pop().text;
+
+    // Query the search index
+    const searchResults = await querySearchIndex(latestUserMessage);
+
+    // Prepare the additional information from search results
+    const additionalInfo = searchResults.map((result) => result.document.content).join('\n');
+
+    // Add the additional information to the OpenAI messages
+    const openAIMessages = [
+      ...messages,
+      {
+        isUser: false,
+        text: `Here is some additional information based on your query:\n${additionalInfo}`,
+      },
+    ];
+
+    // Call OpenAI API with the enriched messages
+    const openAIResponse = await callOpenAIApi(openAIMessages);
     res.json(openAIResponse);
   } catch (error) {
     res.status(500).json({ error: 'Failed to get a response from OpenAI' });
