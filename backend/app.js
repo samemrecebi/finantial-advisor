@@ -1,12 +1,23 @@
 import express from 'express';
-
 import postgresClient from './config/db.js';
-
 import authenticateToken from './Middleware/auth.js';
+import currrenciesRouter from './controllers/CurrencyController.js';
+import users from './controllers/Users.js'
+import stockRouter from './controllers/StockController.js';
+import chatRouter from './controllers/chat.js';
 
 
 const app = express();
 app.use(express.json())
+
+
+//API routes
+app.use('/api/users', users)
+app.use('/api/currencies',authenticateToken, currrenciesRouter);
+app.use('/api/stocks',authenticateToken, stockRouter);
+app.use('/api/chat', chatRouter);
+
+
 
 // Function to test the database connection
 const checkDbConnection = async () => {
@@ -38,7 +49,7 @@ checkDbConnection().then(success => {
 });
 
 
-// Start the Express server (assuming you have additional app setup code below)
+// Start the Express server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log('Server running on port', PORT);

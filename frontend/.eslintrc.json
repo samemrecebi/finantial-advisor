@@ -1,16 +1,17 @@
 {
   "extends": [
-      "next/core-web-vitals",
-      "prettier",
-      "airbnb",
-      "airbnb/hooks",
-      "airbnb-typescript"
-    ],
-    "parserOptions": {
-      "project": "./tsconfig.json"
-    },
-    "rules": {
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-uses-react": "off"
-    }
+    "next/core-web-vitals",
+    "prettier",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    "jsx-a11y/control-has-associated-label": "off"
+  }
 }
