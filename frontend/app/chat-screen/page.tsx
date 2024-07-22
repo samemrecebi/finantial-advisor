@@ -17,15 +17,12 @@ function ChatPage() {
   const [messages, setMessages] = useState<
   { text: string; isUser: boolean }[]
   >([]);
-
   const [input, setInput] = useState('');
-
   const sendMessage = async () => {
     if (input.trim() !== '') {
       const userMessage = { text: input, isUser: true };
       setMessages([...messages, userMessage]);
       setInput('');
-
       // Send the message to the backend API
       try {
         const response = await fetch('/api/chat', {
@@ -35,7 +32,6 @@ function ChatPage() {
           },
           body: JSON.stringify({ messages: [...messages, userMessage] }),
         });
-
         if (response.ok) {
           const data = await response.json();
           console.log('Received response:', data);
@@ -49,15 +45,11 @@ function ChatPage() {
       }
     }
   };
-
   const redirectToProfile = () => {
     router.push('/profile'); // Adjust this route according to your Next.js setup
   };
-
   const [isOpen, setIsOpen] = useState(false);
-
   const handleClose = () => setIsOpen(false);
-
   return (
     <div className="flex flex-col h-screen bg-blue-100 font-sans">
       {/* Header */}
@@ -88,7 +80,6 @@ function ChatPage() {
           </div>
         </Drawer.Items>
       </Drawer>
-
       {/* Chat Area */}
       <div className="flex-1 p-4 overflow-y-auto">
         {messages.length === 0 ? (
@@ -124,7 +115,6 @@ function ChatPage() {
           ))
         )}
       </div>
-
       {/* Input Area */}
       <div className="flex items-center p-4 ">
         <input
@@ -146,5 +136,4 @@ function ChatPage() {
     </div>
   );
 }
-
 export default ChatPage;
