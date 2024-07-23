@@ -1,0 +1,14 @@
+markdownify
+langchain
+tenacity
+openai==1.9.0
+tiktoken
+azure-ai-documentintelligence==1.0.0b3
+azure-ai-formrecognizer==3.3.3
+azure-ai-textanalytics==5.3.0
+azure-common==1.1.28
+azure-core==1.30.2
+azure-search-documents==11.4.0
+azure-storage-blob==12.20.0
+python-dotenv==1.0.1
+azure-identity==1.17.1
