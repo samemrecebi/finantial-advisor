@@ -1,4 +1,5 @@
 import express from 'express';
+import { serialize } from 'cookie'
 import jwt from 'jsonwebtoken';
 import postgresClient from '../config/db.js';
 import authenticateToken from '../Middleware/auth.js';
@@ -20,11 +21,20 @@ router.post('/login', async (req, res) => {
 
         if (!rows.length) {
             console.log("Check username or password or user not found.");
-            return res.status(404).json({ message: "Check username or password or user not found." });
+            return res.status(401).json({ message: "Check username or password or user not found." });
         }
         const token = jwt.sign({ username: username, password: password }, JWT_SECRET, { expiresIn: '1h' });
         console.log("Authentication Successful.");
-        return res.status(200).json({ message: "Authentication Successful.", token });
+        return res
+            .cookie("access_token", token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+            })
+            .cookie("username", username, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+            })
+            .status(200).json({ message: "Authentication Successful."});
 
     } catch (error) {
         console.log("Error occurred", error.message);

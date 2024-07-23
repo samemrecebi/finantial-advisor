@@ -1,8 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { cookies } from 'next/headers';
 
-function ProfilePage() {
+async function reciveUserData() {
+  const cookieStore = cookies();
+  const username = cookieStore.get('username')?.value;
+  const response = await fetch('http://localhost:3001/api/users/getUserDetails', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username }),
+  });
+  const userData = await response.json();
+  return userData;
+}
+
+async function ProfilePage() {
+  const userData = await reciveUserData();
   return (
     <div className="min-h-screen flex justify-end items-center body">
       <div className="bg-[#D6E4FF] mr-0">
@@ -36,6 +50,7 @@ function ProfilePage() {
               <input
                 type="text"
                 placeholder="Paul"
+                defaultValue={userData.first_name}
                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                 style={{ backgroundColor: '#D6E4FF' }}
                 disabled
@@ -48,6 +63,7 @@ function ProfilePage() {
               <input
                 type="text"
                 placeholder="Smith"
+                defaultValue={userData.last_name}
                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                 style={{ backgroundColor: '#D6E4FF' }}
                 disabled
@@ -60,6 +76,7 @@ function ProfilePage() {
               <input
                 type="text"
                 placeholder="paulsmith"
+                defaultValue={userData.username}
                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                 style={{ backgroundColor: '#D6E4FF' }}
                 disabled
@@ -72,6 +89,7 @@ function ProfilePage() {
               <input
                 type="password"
                 placeholder="***"
+                defaultValue={userData.password}
                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                 style={{ backgroundColor: '#D6E4FF' }}
                 disabled

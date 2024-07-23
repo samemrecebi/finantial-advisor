@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -25,7 +26,7 @@ function ChatPage() {
       setInput('');
       // Send the message to the backend API
       try {
-        const response = await fetch('/api/chat', {
+        const response = await fetch('/api/chat/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -71,12 +72,12 @@ function ChatPage() {
         <Drawer.Header className="text-blue-100" title="Konuşmalar" />
         <Drawer.Items>
           <div className="flex items-center justify-between">
-            <a
+            <Link
               href="/chat-screen"
               className="inline-flex items-center rounded-lg bg-blue-900 px-4 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
             >
               Yeni Konusma
-            </a>
+            </Link>
           </div>
         </Drawer.Items>
       </Drawer>

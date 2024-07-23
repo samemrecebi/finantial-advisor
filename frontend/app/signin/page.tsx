@@ -1,7 +1,33 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+import { FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 
 function SignInForm() {
+  const router = useRouter();
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const username = formData.get('email');
+    const password = formData.get('password');
+
+    const response = await fetch('/api/users/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username, password }),
+    });
+
+    if (response.ok) {
+      router.push('/chat-screen');
+    } else {
+      // Handle errors
+    }
+  }
+
   return (
     <main className="flex items-center justify-center min-h-screen bg-dark text-white">
       {/* Arka planı isterseniz sonra bir resim vs. ile değiştirebiliriz */}
@@ -17,12 +43,13 @@ function SignInForm() {
             </div>
           </div>
           <h1 className="text-2xl font-bold mb-4">Giriş Yap</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label className="block text-sm font-medium mb-1">
                 E-posta
                 <input
                   type="email"
+                  name="email"
                   className="block w-full p-2 rounded border text-black"
                   placeholder="kullanici.adi@ornek.com"
                 />
@@ -33,19 +60,11 @@ function SignInForm() {
                 Şifre
                 <input
                   type="password"
+                  name="password"
                   className="block w-full p-2 rounded border text-black"
                   placeholder="********"
                 />
               </label>
-            </div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="flex items-center">
-                <input type="checkbox" className="form-checkbox" />
-                <span className="ml-2 text-xs">Beni hatırla?</span>
-              </label>
-              <a href="#" className="text-xs text-blue-400 hover:underline">
-                Şifremi Unuttum?
-              </a>
             </div>
             <button
               type="submit"
@@ -54,13 +73,6 @@ function SignInForm() {
               Giriş Yap
             </button>
           </form>
-          <p className="text-center text-sm">
-            Henüz kayıtlı değil misiniz?
-            {' '}
-            <Link href="/signup" className="text-blue-400 hover:underline">
-              Bir hesap oluşturun
-            </Link>
-          </p>
         </div>
         <div className="w-1/2 p-6 flex flex-col justify-center items-center bg-white text-black rounded-r-lg">
           <h1 className="text-2xl font-bold mb-4">Tekrar Hoşgeldiniz!</h1>
@@ -69,7 +81,7 @@ function SignInForm() {
           <p className="mb-4 text-sm">E-postanızla kayıt olun</p>
           <Link
             href="/signup"
-            className="btn btn-lg btn-primary text-white font-bold py-2 px-4 rounded mb-4"
+            className="btn btn-lg btn-primary bg-blue-500 text-white font-bold py-2 px-4 rounded mb-4"
           >
             Kayıt Ol
           </Link>
