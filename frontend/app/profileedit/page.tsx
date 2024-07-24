@@ -10,7 +10,7 @@ const ProfileEditPage = () => {
         last_name: '',
         username: '',
         password: '',
-        risk_degree: '', // Added risk_degree field
+        risk_degree: '',
     });
 
     useEffect(() => {
@@ -30,8 +30,8 @@ const ProfileEditPage = () => {
                     first_name: response.data.first_name,
                     last_name: response.data.last_name,
                     username: response.data.username,
-                    password: '', // It is generally not safe to show the password in the form
-                    risk_degree: response.data.risk_degree, // Added risk_degree field
+                    password: '',
+                    risk_degree: response.data.risk_degree,
                 });
             } catch (error) {
                 console.error("Failed to fetch user data:", error);
@@ -52,6 +52,13 @@ const ProfileEditPage = () => {
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
+
+        if (!token) {
+            alert('No token found');
+            return;
+        }
+
+        console.log("Token:", token); // Debugging token
 
         try {
             await axios.put('http://localhost:3001/api/users/update', formData, {
@@ -78,7 +85,7 @@ const ProfileEditPage = () => {
                         </linearGradient>
                     </defs>
                     <circle cx="1250" cy="350" r="1000" fill="url(#gradient)" />
-                    <circle cx="50vw" cy="12vw" r="120" fill="#FFFFFF" />
+                    <circle cx="50%" cy="24%" r="120" fill="#FFFFFF" />
                     <foreignObject x="35" y="40" width="50px" height="50px">
                         <div>
                             <Image
@@ -89,37 +96,37 @@ const ProfileEditPage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="49%" width="240px" height="40px">
+                    <foreignObject x="41%" y="45%" width="240px" height="100px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">First Name</label>
+                        <label className="block text-white text-xs mb-1">Ad</label>
                             <input
                                 type="text"
                                 name="first_name"
                                 value={formData.first_name}
                                 onChange={handleChange}
-                                placeholder="Paul"
+                                placeholder={formData.first_name}
                                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                                 style={{ backgroundColor: '#D6E4FF' }}
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="61%" width="240px" height="40px">
+                    <foreignObject x="41%" y="57%" width="240px" height="100px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Last Name</label>
+                        <label className="block text-white text-xs mb-1">Soyad</label>
                             <input
                                 type="text"
                                 name="last_name"
                                 value={formData.last_name}
                                 onChange={handleChange}
-                                placeholder="Smith"
+                                placeholder={formData.last_name}
                                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                                 style={{ backgroundColor: '#D6E4FF' }}
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="73%" width="240px" height="40px">
+                    <foreignObject x="41%" y="69%" width="240px" height="100px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Username</label>
+                        <label className="block text-white text-xs mb-1">Kullanıcı Adı</label>
                             <input
                                 type="text"
                                 name="username"
@@ -128,12 +135,13 @@ const ProfileEditPage = () => {
                                 placeholder={formData.username}
                                 className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
                                 style={{ backgroundColor: '#D6E4FF' }}
+                                disabled
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="85%" width="240px" height="40px">
+                    <foreignObject x="41%" y="81%" width="240px" height="100px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Password</label>
+                        <label className="block text-white text-xs mb-1">Şifre</label>
                             <input
                                 type="password"
                                 name="password"
@@ -145,22 +153,9 @@ const ProfileEditPage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="97%" width="240px" height="40px">
-                        <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Risk Degree</label>
-                            <input
-                                type="text"
-                                name="risk_degree"
-                                value={formData.risk_degree}
-                                onChange={handleChange}
-                                placeholder="Low"
-                                className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
-                                style={{ backgroundColor: '#D6E4FF' }}
-                            />
-                        </div>
-                    </foreignObject>
                     <foreignObject x="92%" y="90%" width="300px" height="100px">
                         <div onClick={handleSubmit}>
+                        <Link href="/profile">
                             <Image
                                 src="/save.png" 
                                 alt="Save Profile"
@@ -168,10 +163,11 @@ const ProfileEditPage = () => {
                                 height={40}
                                 className="cursor-pointer"
                             />
+                        </Link>
                         </div>
                     </foreignObject>
                     <foreignObject x="95%" y="90%" width="300px" height="100px">
-                        <Link href="/">
+                        <Link href="/profile">
                             <Image
                                 src="/cancel.png" 
                                 alt="Cancel"

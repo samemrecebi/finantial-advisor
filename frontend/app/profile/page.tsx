@@ -49,7 +49,7 @@ const ProfilePage = () => {
                         </linearGradient>
                     </defs>
                     <circle cx="1250" cy="350" r="1000" fill="url(#gradient)" />
-                    <circle cx="50vw" cy="12vw" r="120" fill="#FFFFFF" />
+                    <circle cx="50%" cy="24%" r="120" fill="#FFFFFF" />
                     <foreignObject x="35" y="40" width="50px" height="50px">
                         <div>
                             <Image
@@ -60,14 +60,34 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="43%" y="40%" width="1000px" height="40px">
-                        <div className="text-white text-xl font-bold">
-                            {user.risk_degree}
-                        </div>
-                    </foreignObject>
-                    <foreignObject x="41%" y="53%" width="240px" height="40px">
+                    {user.risk_degree === 'Low Risk' && (
+    <foreignObject x="43%" y="41%" width="1000px" height="40px">
+        <div className="text-white text-xl font-bold">
+            Risk-Averse Investor
+        </div>
+    </foreignObject>
+)}
+
+{user.risk_degree === 'Medium Risk' && (
+    <foreignObject x="43%" y="41%" width="1000px" height="40px">
+        <div className="text-white text-xl font-bold">
+            Balanced Risk Investor
+        </div>
+    </foreignObject>
+)}
+
+{user.risk_degree === 'High Risk' && (
+    <foreignObject x="44%" y="41%" width="1000px" height="40px">
+        <div className="text-white text-xl font-bold">
+            High Risk Investor
+        </div>
+    </foreignObject>
+)}
+
+                    
+                    <foreignObject x="41%" y="53%" width="240px" height="60px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">First Name</label>
+                            <label className="block text-white text-xs mb-1">Ad</label>
                             <input
                                 type="text"
                                 placeholder={user.first_name}
@@ -77,9 +97,9 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="64%" width="240px" height="40px">
+                    <foreignObject x="41%" y="64%" width="240px" height="60px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Last Name</label>
+                            <label className="block text-white text-xs mb-1">Soyad</label>
                             <input
                                 type="text"
                                 placeholder={user.last_name}
@@ -89,9 +109,9 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="75%" width="240px" height="40px">
+                    <foreignObject x="41%" y="75%" width="240px" height="60px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Username</label>
+                            <label className="block text-white text-xs mb-1">Kullanıcı Adı</label>
                             <input
                                 type="text"
                                 placeholder={user.username}
@@ -101,9 +121,9 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="86%" width="240px" height="40px">
+                    <foreignObject x="41%" y="86%" width="240px" height="60px">
                         <div className="relative">
-                            <label className="absolute left-0 -top-6 text-white">Password</label>
+                            <label className="block text-white text-xs mb-1">Şifre</label>
                             <input
                                 type="password"
                                 placeholder="***"
@@ -118,12 +138,18 @@ const ProfilePage = () => {
                             <Image
                                 src="/edit.png" // Ensure this path is correct
                                 alt="Edit Profile"
-                                width={100} // Adjust the width as needed
-                                height={100} // Adjust the height as needed
+                                width={35} // Adjust the width as needed
+                                height={35} // Adjust the height as needed
                                 className="cursor-pointer"
                             />
                         </Link>
                     </foreignObject>
+                    <foreignObject x="88%" y="94%" width="1000px" height="40px">
+                        <div className="text-white text-xs font-bold">
+                            Profili Düzenle
+                        </div>
+                    </foreignObject>
+                    
                 </svg>
             </div>
         </div>
