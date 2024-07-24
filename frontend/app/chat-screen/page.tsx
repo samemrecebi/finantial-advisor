@@ -10,6 +10,7 @@ import {
   faRobot,
 } from '@fortawesome/free-solid-svg-icons';
 import { Button, Drawer } from 'flowbite-react';
+import Latex from 'react-latex-next';
 
 function ChatPage() {
   const router = useRouter();
@@ -101,7 +102,7 @@ function ChatPage() {
               <div
                 className={`p-2 bg-blue-200 rounded-lg max-w-md ${message.isUser ? 'ml-2' : 'mr-2'}`}
               >
-                <p className="text-blue-900 text-xl">{message.text}</p>
+                <p className="text-blue-900 text-xl"><Latex>{message.text}</Latex></p>
               </div>
               {message.isUser && (
                 <FontAwesomeIcon
