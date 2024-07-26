@@ -139,5 +139,5 @@ router.post('/getUserDetails', async (req, res) => {
 
 
 
-
 export default router;
+
