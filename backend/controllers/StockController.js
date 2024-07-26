@@ -10,7 +10,7 @@ const router = express.Router();
 
 // Polygon.io API key and documentation from 
 //https://polygon.io/docs/stocks/get_v1_open-close__stocksticker___date
-const polygonApiKey = 'API_KEY';
+const polygonApiKey = 'FlMFr8iqtsh5zVhTl0Mp52z4NbWpl9ZT';
 
 // Stock data API that returns data for a specific stock ticker
 // !!! ticker type must be written in uppercase letters (ex: AAPL) !!!
@@ -60,6 +60,7 @@ router.get('/bistIndices', authenticateToken, async (req, res) => {
     }
 });
 */
+
 
 
 export default router;

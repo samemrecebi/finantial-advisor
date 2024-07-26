@@ -5,6 +5,7 @@ import currrenciesRouter from './controllers/CurrencyController.js';
 import users from './controllers/Users.js'
 import stockRouter from './controllers/StockController.js';
 import chatRouter from './controllers/chat.js';
+
 import openai from './controllers/openai.js';
 import cors from 'cors';
 
@@ -21,6 +22,15 @@ app.use('/api/stocks',authenticateToken, stockRouter);
 app.use('/api',authenticateToken,openai);
 app.use('/api/chat', chatRouter);
 
+
+
+
+
+//API routes
+app.use('/api/users', users)
+app.use('/api/currencies',authenticateToken, currrenciesRouter);
+app.use('/api/stocks',authenticateToken, stockRouter);
+app.use('/api/chat', chatRouter);
 
 
 

@@ -6,7 +6,9 @@ const router = express.Router();
 
 
 // Currency API key from https://app.currencyapi.com/
-const currencyApiKey = 'API_KEY';
+
+const currencyApiKey = 'cur_live_hau7RMmU7fjkuqPQIr3bS2dwKgy26Iu9JxScwBhm';
+
 
 // Historical currency data API that returns data for a specific date
 // !!! currency type must be written in uppercase letters (ex: USD) !!!
@@ -33,5 +35,6 @@ router.get('/:base_currency',authenticateToken, async (req, res) => {
     }
 });
 
-
 export default router;
+
+
