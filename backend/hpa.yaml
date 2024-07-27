@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: beimage-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: beimage
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
