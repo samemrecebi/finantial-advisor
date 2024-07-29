@@ -8,6 +8,7 @@ function SignUpForm() {
       <div className="flex flex-col md:flex-row bg-gradient-to-r from-indigo-950 to-indigo-400 rounded-lg shadow-lg max-w-4xl w-full">
         <div className="w-full md:w-1/2 p-6">
           <div className="flex justify-between items-center mb-2">
+          <Link href="/" className="block text-white no-underline hover:opacity-80">
             <div className="flex items-center">
               <Image src="/logo.png" alt="Wealthify" width={77} height={61} />
               <div>
@@ -15,6 +16,7 @@ function SignUpForm() {
                 <div className="text-xs">Finans Asistanınız</div>
               </div>
             </div>
+            </Link>
           </div>
           <h1 className="text-xl font-bold mb-2">Kayıt Ol</h1>
           <form>
