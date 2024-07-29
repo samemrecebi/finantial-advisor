@@ -103,10 +103,10 @@ const riskdegree: React.FC = () => {
   // Define descriptions for different risk levels
   const riskDescriptions: { [key: number]: string } = {
     1: 'Olabildiğince riskten kaçınır, güvenli yatırım araçları ile az ama düzenli bir getiri sağlamayı tercih ederim.',
-    2: 'Enflasyonun üzerinde getiri beklentisiyle, düşük riskli ürünlere yatırım yapabilirim.',
+    2: 'Enflasyonun ile paralel getiri beklemekle beraber paramı korumak isterim, düşük riskli ürünlere yatırım yapabilirim.',
     3: 'Enflasyonun üzerinde getiri beklentisiyle, düşük riskli ürünlere yatırım yapabilirim.',
     4: 'Genel olarak orta riskli ürünleri tercih etmekle beraber, uzun vadede getirimi artırmak için riskli ürünlere makul ölçüde yatırım yapabilirim.',
-    5: 'Yüksek getiri beklentisiyle, her türlü riskteki ürüne yatırım yapabilirim.',
+    5: 'Orta - yüksek riskli ürünleri tercih ederim ve orta vadede getiri sağlamak için makul riskteki ürünlere yatırım yapabilirim',
     6: 'Yüksek getiri beklentisiyle, her türlü riskteki ürüne yatırım yapabilirim.',
     7: 'Çok yüksek getiri isterim ve çok yüksek riskli ürünlere yatırım yapabilirim.'
   };
@@ -472,68 +472,66 @@ const riskdegree: React.FC = () => {
 
 
 {currentPage === 5 && (
-  <div className="relative z-10 w-full flex flex-col items-center">
+  <div className="relative z-10 w-full flex flex-col items-center overflow-hidden">
     {/* Centered Header */}
     <div className="w-full flex justify-center mt-4">
-      <h1 className="text-3xl font-bold text-[#061178]">Risk-Getiri Tercihiniz</h1>
+    <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Risk-Getiri Tercihiniz</h1>
+
     </div>
     <div className="w-full flex flex-col items-center mt-8 space-y-4">
       {/* All boxes */}
       <div
         onClick={() => setRiskGetiriTercihi('anaParaKoru')}
-        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[50rem] h-50 flex items-center justify-center transition-colors ${
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
           riskGetiriTercihi === 'anaParaKoru' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
         }`}
       >
         <p className={`text-center ${riskGetiriTercihi === 'anaParaKoru' ? 'text-[#061178]' : 'text-black'}`}>
-          Olabildiğince riskten kaçınır, güvenli yatırım araçlarını tercih eder, az ama düzenli bir getiri
-          sağlamayı tercih ederim. (Anaparam aynen korunsun.)
+          Anaparam aynen korunsun.
         </p>
       </div>
       <div
         onClick={() => setRiskGetiriTercihi('anaParaAzKayip')}
-        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[50rem] h-50 flex items-center justify-center transition-colors ${
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
           riskGetiriTercihi === 'anaParaAzKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
         }`}
       >
         <p className={`text-center ${riskGetiriTercihi === 'anaParaAzKayip' ? 'text-[#061178]' : 'text-black'}`}>
-          Enflasyonun üzerinde getiri beklentisiyle, yatırımımda düşük riskli ürünlere yatırım yapabilirim.
-          (Anaparadan çok az bir miktar kaybetmeyi göze alabilirim.)
+      
+          Anaparadan çok az bir miktar kaybetmeyi göze alabilirim.
         </p>
       </div>
       <div
         onClick={() => setRiskGetiriTercihi('anaParaMiktarKayip')}
-        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[50rem] h-50 flex items-center justify-center transition-colors ${
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
           riskGetiriTercihi === 'anaParaMiktarKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
         }`}
       >
         <p className={`text-center ${riskGetiriTercihi === 'anaParaMiktarKayip' ? 'text-[#061178]' : 'text-black'}`}>
-          Genel olarak orta riskli ürünleri tercih etmekle beraber, uzun vadede toplam getirimi artırmak
-          amacıyla, riskli ürünlere makul ölçüde yatırım yapabilirim. (Anaparadan bir miktar kaybetmeyi
-          göze alabilirim.)
+          Anaparadan bir miktar kaybetmeyi
+          göze alabilirim.
         </p>
       </div>
       <div
         onClick={() => setRiskGetiriTercihi('anaParaKayip')}
-        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[50rem] h-50 flex items-center justify-center transition-colors ${
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
           riskGetiriTercihi === 'anaParaKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
         }`}
       >
         <p className={`text-center ${riskGetiriTercihi === 'anaParaKayip' ? 'text-[#061178]' : 'text-black'}`}>
-          Yüksek getiri beklentisiyle, yüksek riskli ürünlere yatırım yapabilirim. (Anaparadan kaybetmeyi
-          göze alabilirim.)
+          Anaparadan kaybetmeyi
+          göze alabilirim.
         </p>
       </div>
       <div
         onClick={() => setRiskGetiriTercihi('anaParaTamamenKayip')}
-        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[50rem] h-50 flex items-center justify-center transition-colors ${
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
           riskGetiriTercihi === 'anaParaTamamenKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
         }`}
       >
         <p className={`text-center ${riskGetiriTercihi === 'anaParaTamamenKayip' ? 'text-[#061178]' : 'text-black'}`}>
-          Çok yüksek getiri isterim ve çok yüksek riskli ürünlere yatırım yapabilirim. Gelişmiş yatırım
-          ürünlerinin riskleri konusunda bilgiliyim ve bu ürünlere yatırım yapabilirim. (Anaparayı
-          tamamen kaybetmeyi göze alabilirim.)
+          Anaparayı
+          tamamen kaybetmeyi göze alabilirim.
         </p>
       </div>
     </div>
@@ -566,7 +564,7 @@ const riskdegree: React.FC = () => {
               aniDurum === 'panik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
             }`}
           >
-            <p className={`text-center ${aniDurum === 'panik' ? 'text-[#061178]' : 'text-black-500'}`}>
+            <p className={`text-center ${aniDurum === 'panik' ? 'text-[#061178]' : 'text-black'}`}>
               Panikle satış yaparım.
             </p>
           </div>
@@ -576,7 +574,7 @@ const riskdegree: React.FC = () => {
               aniDurum === 'durumDegerlendirmesi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
             }`}
           >
-            <p className={`text-center ${aniDurum === 'durumDegerlendirmesi' ? 'text-[#061178]' : 'text-black-500'}`}>
+            <p className={`text-center ${aniDurum === 'durumDegerlendirmesi' ? 'text-[#061178]' : 'text-black'}`}>
               Durumu değerlendirir ve gerekirse aksiyon alırım.
             </p>
           </div>
@@ -586,7 +584,7 @@ const riskdegree: React.FC = () => {
               aniDurum === 'sabir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
             }`}
           >
-            <p className={`text-center ${aniDurum === 'sabir' ? 'text-[#061178]' : 'text-black-500'}`}>
+            <p className={`text-center ${aniDurum === 'sabir' ? 'text-[#061178]' : 'text-black'}`}>
               Sabırlı olur ve piyasaların toparlanmasını beklerim.
             </p>
           </div>
@@ -596,7 +594,7 @@ const riskdegree: React.FC = () => {
               aniDurum === 'fayda' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
             }`}
           >
-            <p className={`text-center ${aniDurum === 'fayda' ? 'text-[#061178]' : 'text-black-500'}`}>
+            <p className={`text-center ${aniDurum === 'fayda' ? 'text-[#061178]' : 'text-black'}`}>
               Dalgalanmalardan faydalanmaya çalışırım.
             </p>
           </div>
@@ -606,7 +604,7 @@ const riskdegree: React.FC = () => {
               aniDurum === 'hareketsiz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
             }`}
           >
-            <p className={`text-center ${aniDurum === 'hareketsiz' ? 'text-[#061178]' : 'text-black-500'}`}>
+            <p className={`text-center ${aniDurum === 'hareketsiz' ? 'text-[#061178]' : 'text-black'}`}>
               Hiçbir şey yapmam, yatırımımdan memnunum.
             </p>
           </div>
@@ -634,7 +632,7 @@ const riskdegree: React.FC = () => {
   <div className="flex items-center justify-center min-h-screen p-4 bg-gray-100 overflow-hidden">
     <div className="w-full max-w-[1000px] p-4 rounded bg-gradient-to-r from-blue-100 to-gray-100 shadow-md box-border overflow-auto">
       <h2 className="font-bold text-lg text-black text-center">YASAL UYARI</h2>
-      <p className="text-center mt-2">
+      <p className="text-center text-black mt-2">
         Bu test ve testin sonucunda yer alan yatırım bilgi, yorum ve tavsiyeleri yatırım danışmanlığı kapsamında değildir. Yatırım danışmanlığı hizmeti, yetkili kuruluşlar tarafından kişilerin risk ve getiri tercihleri dikkate alınarak kişiye özel sunulmaktadır. Burada yer alan yorum ve tavsiyeler ise genel niteliktedir. Bu tavsiyeler mali durumunuz ile risk ve getiri tercihlerinize uygun olmayabilir. Bu nedenle, sadece burada yer alan bilgilere dayanılarak yatırım kararı verilmesi beklentilerinize uygun sonuçlar doğurmayabilir.
       </p>
       <div className="flex items-center justify-center mt-4">
