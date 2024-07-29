@@ -86,16 +86,6 @@ const ProfileEditPage = () => {
                     </defs>
                     <circle cx="1250" cy="350" r="1000" fill="url(#gradient)" />
                     <circle cx="50%" cy="24%" r="120" fill="#FFFFFF" />
-                    <foreignObject x="35" y="40" width="50px" height="50px">
-                        <div>
-                            <Image
-                                src="/menu.png"
-                                alt="menu"
-                                width={40} 
-                                height={40} 
-                            />
-                        </div>
-                    </foreignObject>
                     <foreignObject x="41%" y="45%" width="240px" height="100px">
                         <div className="relative">
                         <label className="block text-white text-xs mb-1">Ad</label>

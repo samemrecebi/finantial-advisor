@@ -50,42 +50,23 @@ const ProfilePage = () => {
                     </defs>
                     <circle cx="1250" cy="350" r="1000" fill="url(#gradient)" />
                     <circle cx="50%" cy="24%" r="120" fill="#FFFFFF" />
-                    <foreignObject x="35" y="40" width="50px" height="50px">
+                    <foreignObject x="5" y="2" width="150px" height="150px">
                         <div>
+                        <Link href="/chat-screen">
                             <Image
-                                src="/menu.png"
+                                src="/logo.png"
                                 alt="menu"
-                                width={40} 
-                                height={40} 
+                                width={150} 
+                                height={150} 
                             />
+                            </Link>
                         </div>
+
                     </foreignObject>
-                    {user.risk_degree === 'Low Risk' && (
-    <foreignObject x="43%" y="41%" width="1000px" height="40px">
-        <div className="text-white text-xl font-bold">
-            Risk-Averse Investor
-        </div>
-    </foreignObject>
-)}
 
-{user.risk_degree === 'Medium Risk' && (
-    <foreignObject x="43%" y="41%" width="1000px" height="40px">
-        <div className="text-white text-xl font-bold">
-            Balanced Risk Investor
-        </div>
-    </foreignObject>
-)}
-
-{user.risk_degree === 'High Risk' && (
-    <foreignObject x="44%" y="41%" width="1000px" height="40px">
-        <div className="text-white text-xl font-bold">
-            High Risk Investor
-        </div>
-    </foreignObject>
-)}
 
                     
-                    <foreignObject x="41%" y="53%" width="240px" height="60px">
+                    <foreignObject x="41%" y="45%" width="240px" height="60px">
                         <div className="relative">
                             <label className="block text-white text-xs mb-1">Ad</label>
                             <input
@@ -97,7 +78,7 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="64%" width="240px" height="60px">
+                    <foreignObject x="41%" y="57%" width="240px" height="60px">
                         <div className="relative">
                             <label className="block text-white text-xs mb-1">Soyad</label>
                             <input
@@ -109,7 +90,7 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="75%" width="240px" height="60px">
+                    <foreignObject x="41%" y="69%" width="240px" height="60px">
                         <div className="relative">
                             <label className="block text-white text-xs mb-1">Kullanıcı Adı</label>
                             <input
@@ -121,7 +102,7 @@ const ProfilePage = () => {
                             />
                         </div>
                     </foreignObject>
-                    <foreignObject x="41%" y="86%" width="240px" height="60px">
+                    <foreignObject x="41%" y="81%" width="240px" height="60px">
                         <div className="relative">
                             <label className="block text-white text-xs mb-1">Şifre</label>
                             <input
