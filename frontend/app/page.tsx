@@ -1,13 +1,13 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-import { useState, useEffect } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
- {/*Nav sistemi ile güncellendi*/ }
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+/* Nav sistemi ile güncellendi */
 const navigation = [
-  { name: "Ana Sayfa", href: "/" },
-  { name: "Özellikler", href: "#features" },
+  { name: 'Ana Sayfa', href: '/' },
+  { name: 'Özellikler', href: '#features' },
 ];
 
 function HomePage() {
@@ -20,15 +20,15 @@ function HomePage() {
       setShowHeader(prevScrollpos > currentScrollPos || currentScrollPos < 10);
       prevScrollpos = currentScrollPos;
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="min-h-screen flex flex-col text-center bg-gradient-to-r from-indigo-200 to-indigo-400 shadow-lg">
       <header
         className={`fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-indigo-950 to-indigo-400 shadow-lg transition-transform duration-300 ${
-          showHeader ? "translate-y-0" : "-translate-y-full"
+          showHeader ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -48,8 +48,8 @@ function HomePage() {
             <div className="md:flex md:items-center md:gap-12">
               <nav aria-label="Global" className="hidden md:block h-5">
                 <ul className="flex items-center gap-6 text-sm">
-                  {/*Nav sistemi ile güncellendi*/ }
-                  {navigation.map((item) => ( 
+                  {/* Nav sistemi ile güncellendi */ }
+                  {navigation.map((item) => (
                     <li key={item.name}>
                       <a
                         className="relative no-underline text-blue-100 transition hover:text-gray-500/75-after:content-[''] after:block after:w-0 after:h-0.5 after:bg-blue-100 after:transition-all after:duration-300 after:hover:w-full"
@@ -73,12 +73,12 @@ function HomePage() {
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </div>
+        </div>
       </header>
       {/* MOBILE HEROSU DÜZENLENMESİ GEREK */}
-      
+
       {/* Hero Section */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -88,7 +88,7 @@ function HomePage() {
           <div
             style={{
               clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
             }}
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
@@ -107,7 +107,9 @@ function HomePage() {
                 Kayıt Ol
               </Link>
               <a href="#features" className="text-sm font-semibold leading-6 text-gray-900">
-                Daha fazlası <span aria-hidden="true">→</span>
+                Daha fazlası
+                {' '}
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
@@ -119,7 +121,7 @@ function HomePage() {
           <div
             style={{
               clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+                'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
             }}
             className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
           />
