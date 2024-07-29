@@ -8,6 +8,7 @@ function SignInForm() {
       <div className="flex flex-row bg-gradient-to-r from-indigo-950 to-indigo-400 rounded-lg shadow-lg max-w-4xl w-full">
         <div className="w-1/2 p-6">
           <div className="flex justify-between items-center mb-4">
+            <Link href="/" className="block text-white no-underline hover:opacity-80">
             <div className="flex items-center">
               <Image src="/logo.png" alt="Wealthify" width={77} height={61} />
               <div>
@@ -15,6 +16,7 @@ function SignInForm() {
                 <div className="text-xs">Finans Asistanınız</div>
               </div>
             </div>
+            </Link>
           </div>
           <h1 className="text-2xl font-bold mb-4">Giriş Yap</h1>
           <form>
@@ -43,9 +45,6 @@ function SignInForm() {
                 <input type="checkbox" className="form-checkbox" />
                 <span className="ml-2 text-xs">Beni hatırla?</span>
               </label>
-              <a href="#" className="text-xs text-blue-400 hover:underline">
-                Şifremi Unuttum?
-              </a>
             </div>
             <button
               type="submit"
