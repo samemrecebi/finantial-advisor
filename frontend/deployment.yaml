@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: feimage-deployment
+  labels:
+    app: feimage
+spec:
+  selector:
+    matchLabels:
+      app: feimage
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: feimage
+    spec:
+      containers:
+      - name: feimage
+        image: yigitpekgoz/feimage:latest
+        ports:
+        - containerPort: 3000
