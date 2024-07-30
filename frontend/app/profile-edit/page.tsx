@@ -1,42 +1,47 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, {
+  useState, useEffect, ChangeEvent, FormEvent,
+} from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  faFloppyDisk,
+  faBan,
   faComments,
-  faUserPen,
 } from '@fortawesome/free-solid-svg-icons';
 
-function ProfilePage() {
+function ProfileEditPage() {
   const router = useRouter();
-  const [user, setUser] = useState({
+  const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
     username: '',
+    password: '',
     risk_degree: '',
   });
 
   useEffect(() => {
     const fetchUserData = async () => {
       const token = localStorage.getItem('token');
-      const username = localStorage.getItem('username'); // Assuming username is stored in localStorage
-
+      const username = localStorage.getItem('username');
       if (!token || !username) return;
 
       try {
-        const response = await axios.post(
-          '/api/users/getUserDetails',
-          { username }, // Pass username in the request body
-          {
-            headers: {
-              Authorization: `${token}`,
-            },
+        const response = await axios.post('http://localhost:3001/api/users/getUserDetails', { username }, {
+          headers: {
+            Authorization: `${token}`,
           },
-        );
+        });
 
-        setUser(response.data);
+        setFormData({
+          first_name: response.data.first_name,
+          last_name: response.data.last_name,
+          username: response.data.username,
+          password: '',
+          risk_degree: response.data.risk_degree,
+        });
       } catch (error) {
         // Handle error
       }
@@ -44,12 +49,43 @@ function ProfilePage() {
 
     fetchUserData();
   }, []);
-  const redirectToChat = () => {
-    router.push('/chat-screen'); // Adjust this route according to your Next.js setup
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const redirectToEdit = () => {
-    router.push('/profile-edit'); // Adjust this route according to your Next.js setup
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      alert('No token found');
+      return;
+    }
+
+    try {
+      await axios.put('http://localhost:3001/api/users/update', formData, {
+        headers: {
+          Authorization: `${token}`,
+        },
+      });
+
+      alert('Profile updated successfully!');
+      router.push('/profile');
+    } catch (error) {
+      console.error('Failed to update profile:', error);
+      alert('Failed to update profile');
+    }
+  };
+  const redirectToProfile = () => {
+    router.push('/profile'); // Adjust this route according to your Next.js setup
+  };
+  const redirectToChat = () => {
+    router.push('/chat-screen'); // Adjust this route according to your Next.js setup
   };
 
   return (
@@ -71,10 +107,12 @@ function ProfilePage() {
             Ad
             <input
               type="text"
-              placeholder={user.first_name}
+              name="first_name"
+              value={formData.first_name}
+              onChange={handleChange}
+              placeholder={formData.first_name}
               className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
               style={{ backgroundColor: '#D6E4FF' }}
-              disabled
             />
           </label>
 
@@ -82,10 +120,12 @@ function ProfilePage() {
             Soyad
             <input
               type="text"
-              placeholder={user.last_name}
+              name="last_name"
+              value={formData.last_name}
+              onChange={handleChange}
+              placeholder={formData.last_name}
               className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
               style={{ backgroundColor: '#D6E4FF' }}
-              disabled
             />
           </label>
 
@@ -93,7 +133,10 @@ function ProfilePage() {
             Kullanıcı Adı
             <input
               type="text"
-              placeholder={user.username}
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              placeholder={formData.username}
               className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
               style={{ backgroundColor: '#D6E4FF' }}
               disabled
@@ -104,10 +147,12 @@ function ProfilePage() {
             Şifre
             <input
               type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               placeholder="***"
               className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
               style={{ backgroundColor: '#D6E4FF' }}
-              disabled
             />
           </label>
 
@@ -118,14 +163,22 @@ function ProfilePage() {
           <button
             type="button"
             className="p-2 bg-blue-900 rounded-md"
-            onClick={redirectToEdit}
+            onClick={redirectToProfile}
           >
-            <FontAwesomeIcon icon={faUserPen} size="2x" />
+            <FontAwesomeIcon icon={faBan} size="2x" />
+          </button>
+          <button
+            type="button"
+            className="p-2 bg-blue-900 rounded-md"
+            onClick={handleSubmit}
+          >
+            <FontAwesomeIcon icon={faFloppyDisk} size="2x" />
           </button>
         </div>
       </div>
     </div>
+
   );
 }
 
-export default ProfilePage;
+export default ProfileEditPage;

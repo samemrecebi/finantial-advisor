@@ -20,7 +20,7 @@ app.use('/api/users', users);
 app.use('/api/currencies',authenticateToken, currrenciesRouter);
 app.use('/api/stocks',authenticateToken, stockRouter);
 app.use('/api',authenticateToken,openai);
-app.use('/api/chat', chatRouter);
+app.use('/api/chat',authenticateToken, chatRouter);
 
 
 
