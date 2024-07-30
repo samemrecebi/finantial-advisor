@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontimage-deployment
+  labels:
+    app: frontimage
+spec:
+  selector:
+    matchLabels:
+      app: frontimage
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: frontimage
+    spec:
+      containers:
+      - name: frontimage
+        image: yigitpekgoz/frontimage:latest
+        ports:
+        - containerPort: 3000
