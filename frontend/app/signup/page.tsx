@@ -102,12 +102,6 @@ function SignUpForm() {
               Kayıt Ol
             </button>
           </form>
-          <p className="text-center text-sm">
-            Zaten bir hesabınız var mı?{" "}
-            <Link href="/signin" className="text-blue-400 hover:underline">
-              Giriş Yap
-            </Link>
-          </p>
         </div>
         <div className="w-full md:w-1/2 p-4 flex flex-col justify-center items-center bg-white text-black rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
           <h1 className="text-2xl font-bold mb-4">Merhaba!</h1>
@@ -115,7 +109,7 @@ function SignUpForm() {
             GPT4o modeli tarafından desteklenen özel finans asistanımızla bir yolculuğa çıkın
           </p>
           <p className="mb-4 text-lg font-bold">VEYA</p>
-          <p className="mb-4 text-sm">Wealthify hesabınızla giriş yapın</p>
+          <p className="mb-4 text-sm">Mevcut hesabınızla giriş yapın</p>
           <Link
             href="/signin"
             className="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white no-underline transition hover:bg-indigo-700"

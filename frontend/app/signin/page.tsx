@@ -83,13 +83,6 @@ function SignInForm() {
               Giriş Yap
             </button>
           </form>
-          <p className="text-center text-sm">
-            Henüz kayıtlı değil misiniz?
-            {' '}
-            <Link href="/signup" className="text-blue-400 hover:underline">
-              Bir hesap oluşturun
-            </Link>
-          </p>
         </div>
         <div className="w-full md:w-1/2 p-6 flex flex-col justify-center items-center bg-white text-black rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
           <h1 className="text-2xl font-bold mb-4">Tekrar Hoşgeldiniz!</h1>

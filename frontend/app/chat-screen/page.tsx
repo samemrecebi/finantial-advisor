@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faArrowUp,
-  faBars,
+  faHouse,
   faUser,
   faRobot,
+  faPaperPlane,
 } from '@fortawesome/free-solid-svg-icons';
-import { Button, Drawer } from 'flowbite-react';
+import Latex from 'react-latex-next';
 
 function ChatPage() {
   const router = useRouter();
@@ -49,38 +49,30 @@ function ChatPage() {
   const redirectToProfile = () => {
     router.push('/profile'); // Adjust this route according to your Next.js setup
   };
-  const [isOpen, setIsOpen] = useState(false);
-  const handleClose = () => setIsOpen(false);
+  const redirectToHome = () => {
+    router.push('/'); // Adjust this route according to your Next.js setup
+  };
   return (
     <div className="flex flex-col h-screen bg-blue-100 font-sans">
       {/* Header */}
       <div className="flex items-center justify-between p-4">
-        <Button className="bg-blue-900" onClick={() => setIsOpen(true)}>
-          <FontAwesomeIcon icon={faBars} />
-        </Button>
         <div className="flex items-center space-x-4">
           <button
             type="button"
             className="p-2 bg-blue-900 rounded-md"
             onClick={redirectToProfile}
           >
-            <FontAwesomeIcon icon={faUser} />
+            <FontAwesomeIcon icon={faUser} size="2x" />
+          </button>
+          <button
+            type="button"
+            className="p-2 bg-blue-900 rounded-md"
+            onClick={redirectToHome}
+          >
+            <FontAwesomeIcon icon={faHouse} size="2x" />
           </button>
         </div>
       </div>
-      <Drawer className="bg-blue-600" open={isOpen} onClose={handleClose}>
-        <Drawer.Header className="text-blue-100" title="Konuşmalar" />
-        <Drawer.Items>
-          <div className="flex items-center justify-between">
-            <a
-              href="/chat-screen"
-              className="inline-flex items-center rounded-lg bg-blue-900 px-4 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
-            >
-              Yeni Konusma
-            </a>
-          </div>
-        </Drawer.Items>
-      </Drawer>
       {/* Chat Area */}
       <div className="flex-1 p-4 overflow-y-auto">
         {messages.length === 0 ? (
@@ -98,17 +90,19 @@ function ChatPage() {
                   icon={faRobot}
                   style={{ color: '#1E3A8A' }}
                   className="p-2"
+                  size="2x"
                 />
               )}
               <div
                 className={`p-2 bg-blue-200 rounded-lg max-w-md ${message.isUser ? 'ml-2' : 'mr-2'}`}
               >
-                <p className="text-blue-900 text-xl">{message.text}</p>
+                <p className="text-blue-900 text-xl"><Latex>{message.text}</Latex></p>
               </div>
               {message.isUser && (
                 <FontAwesomeIcon
                   icon={faUser}
                   style={{ color: '#1E3A8A' }}
+                  size="2x"
                   className="p-2"
                 />
               )}
@@ -121,7 +115,7 @@ function ChatPage() {
         <input
           type="text"
           placeholder=" Mesajınızı buraya giriniz"
-          className="flex-1 text-[32px] bg-blue-200 text-blue-900 placeholder-blue-400 p-2 rounded-md"
+          className="flex-1 text-[24px] bg-blue-200 text-blue-900 placeholder-blue-400 p-2 rounded-md"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
@@ -131,7 +125,7 @@ function ChatPage() {
           className="p-2 ml-2 bg-blue-900 rounded-md hover:bg-blue-600"
           onClick={sendMessage}
         >
-          <FontAwesomeIcon icon={faArrowUp} />
+          <FontAwesomeIcon icon={faPaperPlane} size="2x" />
         </button>
       </div>
     </div>

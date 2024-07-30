@@ -2,6 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import dotenv from 'dotenv';
 import { SearchClient, AzureKeyCredential } from '@azure/search-documents';
+import authenticateToken from '../Middleware/auth.js';
 
 const router = express.Router();
 
@@ -43,15 +44,15 @@ Sorulan sorulara sana verilen kaynaklar üzerinden referans vererek ve tarih gö
  Karşılaştırma sorularında sorunun içerisinde özel bir tarih belirtilmediyse her zaman en güncel tarihli dokümandan veriler ile cevap ver.
 Alıntı yapılan dokümanı verdiğin cevap içerisinde belirtme.
 Yanıt Biçimi:
-Eğer aldigin mesaj kullaniciya ait  ilk mesaj ise "Merhaba, Wealthify yatırım asistanına hoşgeldiniz. Size nasıl yardımcı olabilirim?" cevabı ile dönmelisin, eger kullanicidan gelen ilk mesaj bir soru iceriyorsa selamlama cumlesinden sonra soruya yanit vermelisin.
- Vereceğin cevaplarda "gerekirse bir finansal danışmana danışınız" cümlesini kullanma. Onun yerine "Başka hangi konularda yardımcı olabilirim?" olarak cevap ver
+Eğer sadece ilk mesaj ise "Merhaba, Wealthify finansal AI asistanına hoşgeldiniz. Size nasıl yardımcı olabilirim?" cevabı ile dönülmelidir, ve ardından sorulan soru varsa cevap verilmelidir. Vereceğin cevaplarda "gerekirse bir finansal danışmana danışınız" cümlesini kullanma. Onun yerine "Başka hangi konularda yardımcı olabilirim?" olarak cevap ver
 Yanıtlar doğrudan kullanıcının sorgusuna odaklanmalı ve gereksiz bilgi içermemelidir.
 Yanıt Süreci:
 Belirsiz veya aşırı genel sorgular söz konusu olduğunda, modelin sorguyu netleştirmek için daha fazla bilgi talep etmesi uygun olabilir.
 Kullanıcıya yardımcı olmak için gerektiğinde birden fazla soru sormaktan çekinme.
 Yanıtların doğruluğunu ve güvenilirliğini sağlamak için gerektiğinde kaynakları kontrol et.
 
-Örnekler:{
+Örnekler:
+{
   role: 'user',
   content: 'Hangi konularda yardımcı olabilirsin?',
 },
@@ -133,7 +134,7 @@ const querySearchIndex = async (query) => {
 };
 
 // Route to handle chat requests
-router.post('/chat', async (req, res) => {
+router.post('/chat', authenticateToken, async (req, res) => {
   const { messages } = req.body;
 
   console.log('Received messages:', JSON.stringify(messages, null, 2));
