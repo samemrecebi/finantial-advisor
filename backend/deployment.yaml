@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: beimage-deployment
+  name: backimage-deployment
   labels:
-    app: beimage
+    app: backimage
 spec:
   selector:
     matchLabels:
-      app: beimage
+      app: backimage
   replicas: 3
   template:
     metadata:
       labels:
-        app: beimage
+        app: backimage
     spec:
       containers:
-      - name: beimage
-        image: yigitpekgoz/beimage:latest
+      - name: backimage
+        image: yigitpekgoz/backimage:latest
         ports:
         - containerPort: 3001

@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: feimage-deployment
+  name: frontimage-deployment
   labels:
-    app: feimage
+    app: frontimage
 spec:
   selector:
     matchLabels:
-      app: feimage
+      app: frontimage
   replicas: 3
   template:
     metadata:
       labels:
-        app: feimage
+        app: frontimage
     spec:
       containers:
-      - name: feimage
-        image: yigitpekgoz/feimage:latest
+      - name: frontimage
+        image: yigitpekgoz/frontimage:latest
         ports:
         - containerPort: 3000
