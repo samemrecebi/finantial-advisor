@@ -133,31 +133,31 @@ const riskdegree: React.FC = () => {
         <h3 className="text-lg font-semibold text-[#061178]">Ürün Bilgisi</h3>
         <div
           onClick={() => setUrunBilgisi('Ürün Hakkında Bilgim Yok')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             urunBilgisi === 'Ürün Hakkında Bilgim Yok' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${urunBilgisi === 'Ürün Hakkında Bilgim Yok' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${urunBilgisi === 'Ürün Hakkında Bilgim Yok' ? 'text-[#061178]' : 'text-black'}`}>
             Ürün Hakkında Bilgim Yok
           </p>
         </div>
         <div
           onClick={() => setUrunBilgisi('Ürün Hakkında Bilgim Kısıtlı')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             urunBilgisi === 'Ürün Hakkında Bilgim Kısıtlı' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${urunBilgisi === 'Ürün Hakkında Bilgim Kısıtlı' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${urunBilgisi === 'Ürün Hakkında Bilgim Kısıtlı' ? 'text-[#061178]' : 'text-black'}`}>
             Ürün Hakkında Bilgim Kısıtlı
           </p>
         </div>
         <div
           onClick={() => setUrunBilgisi('Ürün Hakkında Yeterince Bilgim Var')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             urunBilgisi === 'Ürün Hakkında Yeterince Bilgim Var' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${urunBilgisi === 'Ürün Hakkında Yeterince Bilgim Var' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${urunBilgisi === 'Ürün Hakkında Yeterince Bilgim Var' ? 'text-[#061178]' : 'text-black'}`}>
             Ürün Hakkında Yeterince Bilgim Var
           </p>
         </div>
@@ -167,31 +167,31 @@ const riskdegree: React.FC = () => {
         <h3 className="text-lg font-semibold text-[#061178]">İşlem Sıklığı</h3>
         <div
           onClick={() => setIslemSikligi('Nadiren (Yılda Birkaç Defa)')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             islemSikligi === 'Nadiren (Yılda Birkaç Defa)' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${islemSikligi === 'Nadiren (Yılda Birkaç Defa)' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${islemSikligi === 'Nadiren (Yılda Birkaç Defa)' ? 'text-[#061178]' : 'text-black'}`}>
             Nadiren (Yılda Birkaç Defa)
           </p>
         </div>
         <div
           onClick={() => setIslemSikligi('Arasıra (Ayda Birkaç Defa)')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             islemSikligi === 'Arasıra (Ayda Birkaç Defa)' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${islemSikligi === 'Arasıra (Ayda Birkaç Defa)' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${islemSikligi === 'Arasıra (Ayda Birkaç Defa)' ? 'text-[#061178]' : 'text-black'}`}>
             Arasıra (Ayda Birkaç Defa)
           </p>
         </div>
         <div
           onClick={() => setIslemSikligi('Sıklıkla (Haftada Birkaç Defa)')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             islemSikligi === 'Sıklıkla (Haftada Birkaç Defa)' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${islemSikligi === 'Sıklıkla (Haftada Birkaç Defa)' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${islemSikligi === 'Sıklıkla (Haftada Birkaç Defa)' ? 'text-[#061178]' : 'text-black'}`}>
             Sıklıkla (Haftada Birkaç Defa)
           </p>
         </div>
@@ -201,31 +201,31 @@ const riskdegree: React.FC = () => {
         <h3 className="text-lg font-semibold text-[#061178]">Hacim Bilgisi (TL)</h3>
         <div
           onClick={() => setHacimBilgisi('1 - 50.000')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             hacimBilgisi === '1 - 50.000' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${hacimBilgisi === '1 - 50.000' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${hacimBilgisi === '1 - 50.000' ? 'text-[#061178]' : 'text-black'}`}>
             1 - 50.000
           </p>
         </div>
         <div
           onClick={() => setHacimBilgisi('50.001 - 500.000')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             hacimBilgisi === '50.001 - 500.000' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${hacimBilgisi === '50.001 - 500.000' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${hacimBilgisi === '50.001 - 500.000' ? 'text-[#061178]' : 'text-black'}`}>
             50.001 - 500.000
           </p>
         </div>
         <div
           onClick={() => setHacimBilgisi('500.001 ve üzeri')}
-          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-20 flex items-center justify-center transition-colors ${
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
             hacimBilgisi === '500.001 ve üzeri' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
           }`}
         >
-          <p className={`text-center ${hacimBilgisi === '500.001 ve üzeri' ? 'text-[#061178]' : 'text-black'}`}>
+          <p className={`text-center text-black ${hacimBilgisi === '500.001 ve üzeri' ? 'text-[#061178]' : 'text-black'}`}>
             500.001 ve üzeri
           </p>
         </div>
@@ -244,13 +244,13 @@ const riskdegree: React.FC = () => {
   };
 
   const riskSizes: { [key: number]: string } = {
-    1: 'h-50',
-    2: 'h-75',
-    3: 'h-100',
-    4: 'h-125',
-    5: 'h-150',
-    6: 'h-175',
-    7: 'h-200'
+    1: 'h-40',
+    2: 'h-60',
+    3: 'h-75',
+    4: 'h-100',
+    5: 'h-125',
+    6: 'h-150',
+    7: 'h-175'
   };
 
   const riskDescriptions: { [key: number]: string } = {
@@ -330,7 +330,6 @@ const riskdegree: React.FC = () => {
     "Risk Değeri 7 Olan Yatırım Fonları":
       "Risk değeri 7 olan yatırım fonları, en yüksek risk kategorisinde yer alır ve türev işlemler, kaldıraçlı işlemler gibi çok yüksek riskli varlıklara yatırım yapar. Bu fonlar, çok yüksek getiri hedefleyen ve yüksek risk toleransı olan yatırımcılar için uygundur."
   };
-  
 
   const handleInvestmentClick = (investment: string) => {
     setSelectedInvestment(investment);
@@ -372,7 +371,7 @@ const riskdegree: React.FC = () => {
                 <div className="flex justify-center mb-4">
                   <img src="/genelYatirimci.png" alt="Genel Yatırımcı" />
                 </div>
-                <p className={`text-center ${selectedType === 'Genel Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>Genel Yatırımcı</p>
+                <p className={`text-center text-black ${selectedType === 'Genel Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>Genel Yatırımcı</p>
               </div>
               <div
                 onClick={() => setSelectedType('Nitelikli Yatırımcı')}
@@ -383,7 +382,7 @@ const riskdegree: React.FC = () => {
                 <div className="flex justify-center mb-4">
                   <img src="/nitelik.png" alt="Nitelikli Yatırımcı" />
                 </div>
-                <p className={`text-center ${selectedType === 'Nitelikli Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>Nitelikli Yatırımcı</p>
+                <p className={`text-center text-black ${selectedType === 'Nitelikli Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>Nitelikli Yatırımcı</p>
               </div>
             </div>
             <div className="flex justify-center mt-8 space-x-4">
@@ -414,7 +413,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/sermayekoruma.png" alt="Sermaye Koruma" className="mb-4" />
-                  <p className={`text-center ${yatirimHedefi === 'sermayeKoruma' ? 'text-[#061178]' : 'text-black'}`}>Sermayemi korumak</p>
+                  <p className={`text-center text-black ${yatirimHedefi === 'sermayeKoruma' ? 'text-[#061178]' : 'text-black'}`}>Sermayemi korumak</p>
                 </div>
                 <div
                   onClick={() => setYatirimHedefi('duzenliGelir')}
@@ -423,7 +422,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/duzenligelir.png" alt="Düzenli Gelir" className="mb-4" />
-                  <p className={`text-center ${yatirimHedefi === 'duzenliGelir' ? 'text-[#061178]' : 'text-black'}`}>Düzenli gelir elde etmek</p>
+                  <p className={`text-center text-black ${yatirimHedefi === 'duzenliGelir' ? 'text-[#061178]' : 'text-black'}`}>Düzenli gelir elde etmek</p>
                 </div>
                 <div
                   onClick={() => setYatirimHedefi('uzunVadeBuyume')}
@@ -432,7 +431,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/uzunvadebuyume.png" alt="Uzun Vadede Büyüme" className="mb-4" />
-                  <p className={`text-center ${yatirimHedefi === 'uzunVadeBuyume' ? 'text-[#061178]' : 'text-black'}`}>Uzun vadede büyüme sağlamak</p>
+                  <p className={`text-center text-black ${yatirimHedefi === 'uzunVadeBuyume' ? 'text-[#061178]' : 'text-black'}`}>Uzun vadede büyüme sağlamak</p>
                 </div>
               </div>
 
@@ -444,7 +443,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/emekli.png" alt="Emeklilik Birikimi" className="mb-4" />
-                  <p className={`text-center ${yatirimHedefi === 'emeklilik' ? 'text-[#061178]' : 'text-black'}`}>Emeklilik için birikim yapmak</p>
+                  <p className={`text-center text-black ${yatirimHedefi === 'emeklilik' ? 'text-[#061178]' : 'text-black'}`}>Emeklilik için birikim yapmak</p>
                 </div>
                 <div
                   onClick={() => setYatirimHedefi('yuksekGetiri')}
@@ -453,7 +452,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="risklibuyume.png" alt="Riskle Yüksek Getiri" className="mb-4" />
-                  <p className={`text-center ${yatirimHedefi === 'yuksekGetiri' ? 'text-[#061178]' : 'text-black'}`}>Risk alarak yüksek getiri sağlamak</p>
+                  <p className={`text-center text-black ${yatirimHedefi === 'yuksekGetiri' ? 'text-[#061178]' : 'text-black'}`}>Risk alarak yüksek getiri sağlamak</p>
                 </div>
               </div>
             </div>
@@ -529,7 +528,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/birOtuzGun.png" alt="1 - 30 Gün" className="mb-4" />
-                  <p className={`text-center ${selectedTime === 'birOtuzGun' ? 'text-[#061178]' : 'text-black'}`}>1 - 30 Gün</p>
+                  <p className={`text-center text-black ${selectedTime === 'birOtuzGun' ? 'text-[#061178]' : 'text-black'}`}>1 - 30 Gün</p>
                 </div>
                 <div
                   onClick={() => setSelectedTime('birUcAy')}
@@ -538,7 +537,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/birUcAy.png" alt="1 - 3 Ay" className="mb-4" />
-                  <p className={`text-center ${selectedTime === 'birUcAy' ? 'text-[#061178]' : 'text-black'}`}>1 - 3 Ay</p>
+                  <p className={`text-center text-black ${selectedTime === 'birUcAy' ? 'text-[#061178]' : 'text-black'}`}>1 - 3 Ay</p>
                 </div>
                 <div
                   onClick={() => setSelectedTime('ucAltiAy')}
@@ -547,7 +546,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/ucAltiAy.png" alt="3 - 6 Ay" className="mb-4" />
-                  <p className={`text-center ${selectedTime === 'ucAltiAy' ? 'text-[#061178]' : 'text-black'}`}>3 - 6 Ay</p>
+                  <p className={`text-center text-black ${selectedTime === 'ucAltiAy' ? 'text-[#061178]' : 'text-black'}`}>3 - 6 Ay</p>
                 </div>
               </div>
 
@@ -559,7 +558,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/altiAyBirYil.png" alt="6 Ay - 1 Yıl" className="mb-4" />
-                  <p className={`text-center ${selectedTime === 'altiAyBirYil' ? 'text-[#061178]' : 'text-black'}`}>6 Ay - 1 Yıl</p>
+                  <p className={`text-center text-black ${selectedTime === 'altiAyBirYil' ? 'text-[#061178]' : 'text-black'}`}>6 Ay - 1 Yıl</p>
                 </div>
                 <div
                   onClick={() => setSelectedTime('birYil')}
@@ -568,7 +567,7 @@ const riskdegree: React.FC = () => {
                   }`}
                 >
                   <img src="/birYil.png" alt="1 Yıl ve Daha Fazlası" className="mb-4" />
-                  <p className={`text-center ${selectedTime === 'birYil' ? 'text-[#061178]' : 'text-black'}`}>1 Yıl ve Üzeri</p>
+                  <p className={`text-center text-black ${selectedTime === 'birYil' ? 'text-[#061178]' : 'text-black'}`}>1 Yıl ve Üzeri</p>
                 </div>
               </div>
             </div>
@@ -601,43 +600,43 @@ const riskdegree: React.FC = () => {
               <div className="flex flex-col items-end mb-8 space-y-4 pr-12" style={{ transform: 'translateX(-5rem)' }}>
                 <div
                   onClick={() => setSelectedMoney('onbineksi')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
                     selectedMoney === 'onbineksi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
                   }`}
                 >
-                  <p className={`text-center ${selectedMoney === 'onbineksi' ? 'text-[#061178]' : 'text-black'}`}>10.000₺'ye kadar</p>
+                  <p className={`text-center text-black ${selectedMoney === 'onbineksi' ? 'text-[#061178]' : 'text-black'}`}>10.000₺'ye kadar</p>
                 </div>
                 <div
                   onClick={() => setSelectedMoney('onyuz')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
                     selectedMoney === 'onyuz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
                   }`}
                 >
-                  <p className={`text-center ${selectedMoney === 'onyuz' ? 'text-[#061178]' : 'text-black'}`}>10.000₺ - 100.000₺</p>
+                  <p className={`text-center text-black ${selectedMoney === 'onyuz' ? 'text-[#061178]' : 'text-black'}`}>10.000₺ - 100.000₺</p>
                 </div>
                 <div
                   onClick={() => setSelectedMoney('yuzbirm')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
                     selectedMoney === 'yuzbirm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
                   }`}
                 >
-                  <p className={`text-center ${selectedMoney === 'yuzbirm' ? 'text-[#061178]' : 'text-black'}`}>100.000₺ - 1.000.000₺</p>
+                  <p className={`text-center text-black ${selectedMoney === 'yuzbirm' ? 'text-[#061178]' : 'text-black'}`}>100.001₺ - 1.000.000₺</p>
                 </div>
                 <div
                   onClick={() => setSelectedMoney('bironm')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
                     selectedMoney === 'bironm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
                   }`}
                 >
-                  <p className={`text-center ${selectedMoney === 'bironm' ? 'text-[#061178]' : 'text-black'}`}>1.000.000₺ - 10.000.000₺</p>
+                  <p className={`text-center text-black ${selectedMoney === 'bironm' ? 'text-[#061178]' : 'text-black'}`}>1.000.001₺ - 10.000.000₺</p>
                 </div>
                 <div
                   onClick={() => setSelectedMoney('onm')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
                     selectedMoney === 'onm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
                   }`}
                 >
-                  <p className={`text-center ${selectedMoney === 'onm' ? 'text-[#061178]' : 'text-black'}`}>10.000.000₺ ve üzeri</p>
+                  <p className={`text-center text-black ${selectedMoney === 'onm' ? 'text-[#061178]' : 'text-black'}`}>10.000.000₺ ve üzeri</p>
                 </div>
               </div>
             </div>
@@ -657,50 +656,55 @@ const riskdegree: React.FC = () => {
         )}
 
         {currentPage === 5 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex justify-center mt-4">
-              <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Risk-Getiri Tercihiniz</h1>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Beklenmedik Bir Piyasa Dalgalanmasında Tepkiniz</h1>
             </div>
-            <div className="w-full flex flex-col items-center mt-8 space-y-4">
-              <div
-                onClick={() => setRiskGetiriTercihi('anaParaKoru')}
-                className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
-                  riskGetiriTercihi === 'anaParaKoru' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <p className={`text-center ${riskGetiriTercihi === 'anaParaKoru' ? 'text-[#061178]' : 'text-black'}`}>Anaparam aynen korunsun.</p>
+            <div className="flex flex-col items-center mb-8">
+              <div className="flex justify-center space-x-8 mb-8">
+                <div
+                  onClick={() => handleAniDurum('panik')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    aniDurum === 'panik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${aniDurum === 'panik' ? 'text-[#061178]' : 'text-black'}`}>Panik yapar satarım</p>
+                </div>
+                <div
+                  onClick={() => handleAniDurum('durumDegerlendirmesi')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    aniDurum === 'durumDegerlendirmesi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${aniDurum === 'durumDegerlendirmesi' ? 'text-[#061178]' : 'text-black'}`}>Durumu değerlendiririm</p>
+                </div>
+                <div
+                  onClick={() => handleAniDurum('sabir')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    aniDurum === 'sabir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${aniDurum === 'sabir' ? 'text-[#061178]' : 'text-black'}`}>Sabırla beklerim</p>
+                </div>
               </div>
-              <div
-                onClick={() => setRiskGetiriTercihi('anaParaAzKayip')}
-                className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
-                  riskGetiriTercihi === 'anaParaAzKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <p className={`text-center ${riskGetiriTercihi === 'anaParaAzKayip' ? 'text-[#061178]' : 'text-black'}`}>Anaparadan çok az bir miktar kaybetmeyi göze alabilirim.</p>
-              </div>
-              <div
-                onClick={() => setRiskGetiriTercihi('anaParaMiktarKayip')}
-                className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
-                  riskGetiriTercihi === 'anaParaMiktarKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <p className={`text-center ${riskGetiriTercihi === 'anaParaMiktarKayip' ? 'text-[#061178]' : 'text-black'}`}>Anaparadan bir miktar kaybetmeyi göze alabilirim.</p>
-              </div>
-              <div
-                onClick={() => setRiskGetiriTercihi('anaParaKayip')}
-                className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
-                  riskGetiriTercihi === 'anaParaKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <p className={`text-center ${riskGetiriTercihi === 'anaParaKayip' ? 'text-[#061178]' : 'text-black'}`}>Anaparadan kaybetmeyi göze alabilirim.</p>
-              </div>
-              <div
-                onClick={() => setRiskGetiriTercihi('anaParaTamamenKayip')}
-                className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
-                  riskGetiriTercihi === 'anaParaTamamenKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <p className={`text-center ${riskGetiriTercihi === 'anaParaTamamenKayip' ? 'text-[#061178]' : 'text-black'}`}>Anaparayı tamamen kaybetmeyi göze alabilirim.</p>
+
+              <div className="flex justify-center space-x-8">
+                <div
+                  onClick={() => handleAniDurum('fayda')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    aniDurum === 'fayda' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${aniDurum === 'fayda' ? 'text-[#061178]' : 'text-black'}`}>Durumu faydaya çevirecek kararlar alırım</p>
+                </div>
+                <div
+                  onClick={() => handleAniDurum('hareketsiz')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    aniDurum === 'hareketsiz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${aniDurum === 'hareketsiz' ? 'text-[#061178]' : 'text-black'}`}>Hareketsiz kalırım</p>
+                </div>
               </div>
             </div>
             <div className="flex justify-center mt-8 space-x-4">
@@ -709,77 +713,6 @@ const riskdegree: React.FC = () => {
               </button>
               <button
                 onClick={() => setCurrentPage(6)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!riskGetiriTercihi ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!riskGetiriTercihi}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
-
-        {currentPage === 6 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex items-center justify-between">
-              <div className="pl-16">
-                <h1
-                  className="text-3xl font-bold text-[#061178] relative"
-                  style={{ right: '-8rem', width: 'fit-content', maxWidth: 'calc(100% - 10rem)', whiteSpace: 'normal' }}
-                >
-                  Beklenmedik Bir Piyasa Dalgalanmasında Tepkiniz
-                </h1>
-              </div>
-              <div className="flex flex-col items-end mb-8 space-y-4 pr-12" style={{ transform: 'translateX(-10rem)' }}>
-                <div className="grid grid-cols-1 gap-4">
-                  <div
-                    onClick={() => setAniDurum('panik')}
-                    className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
-                      aniDurum === 'panik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                    }`}
-                  >
-                    <p className={`text-center ${aniDurum === 'panik' ? 'text-[#061178]' : 'text-black'}`}>Panikle satış yaparım.</p>
-                  </div>
-                  <div
-                    onClick={() => setAniDurum('durumDegerlendirmesi')}
-                    className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
-                      aniDurum === 'durumDegerlendirmesi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                    }`}
-                  >
-                    <p className={`text-center ${aniDurum === 'durumDegerlendirmesi' ? 'text-[#061178]' : 'text-black'}`}>Durumu değerlendirir ve gerekirse aksiyon alırım.</p>
-                  </div>
-                  <div
-                    onClick={() => setAniDurum('sabir')}
-                    className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
-                      aniDurum === 'sabir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                    }`}
-                  >
-                    <p className={`text-center ${aniDurum === 'sabir' ? 'text-[#061178]' : 'text-black'}`}>Sabırlı olur ve piyasaların toparlanmasını beklerim.</p>
-                  </div>
-                  <div
-                    onClick={() => setAniDurum('fayda')}
-                    className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
-                      aniDurum === 'fayda' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                    }`}
-                  >
-                    <p className={`text-center ${aniDurum === 'fayda' ? 'text-[#061178]' : 'text-black'}`}>Dalgalanmalardan faydalanmaya çalışırım.</p>
-                  </div>
-                  <div
-                    onClick={() => setAniDurum('hareketsiz')}
-                    className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
-                      aniDurum === 'hareketsiz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                    }`}
-                  >
-                    <p className={`text-center ${aniDurum === 'hareketsiz' ? 'text-[#061178]' : 'text-black'}`}>Hiçbir şey yapmam, yatırımımdan memnunum.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(5)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(7)}
                 className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!aniDurum ? 'opacity-50 cursor-not-allowed' : ''}`}
                 disabled={!aniDurum}
               >
@@ -789,22 +722,91 @@ const riskdegree: React.FC = () => {
           </div>
         )}
 
+        {currentPage === 6 && (
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Risk - Getiri Tercihiniz</h1>
+            </div>
+            <div className="flex flex-col items-center mb-8">
+              <div className="flex justify-center space-x-8 mb-8">
+                <div
+                  onClick={() => handleRiskGetiriTercihi('anaParaKoru')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    riskGetiriTercihi === 'anaParaKoru' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaKoru' ? 'text-[#061178]' : 'text-black'}`}>Anaparayı koru</p>
+                </div>
+                <div
+                  onClick={() => handleRiskGetiriTercihi('anaParaAzKayip')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    riskGetiriTercihi === 'anaParaAzKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaAzKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana paradan az miktarda kayıp olabilir</p>
+                </div>
+                <div
+                  onClick={() => handleRiskGetiriTercihi('anaParaMiktarKayip')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    riskGetiriTercihi === 'anaParaMiktarKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaMiktarKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana paradan kayıp olabilir</p>
+                </div>
+              </div>
+
+              <div className="flex justify-center space-x-8">
+                <div
+                  onClick={() => handleRiskGetiriTercihi('anaParaKayip')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    riskGetiriTercihi === 'anaParaKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana paradan kayıp olabilir, yüksek getiri isterim</p>
+                </div>
+                <div
+                  onClick={() => handleRiskGetiriTercihi('anaParaTamamenKayip')}
+                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+                    riskGetiriTercihi === 'anaParaTamamenKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+                  }`}
+                >
+                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaTamamenKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana para tamamen kayıp olabilir</p>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center mt-8 space-x-4">
+              <button onClick={() => setCurrentPage(5)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
+                GERİ
+              </button>
+              <button
+                onClick={() => setCurrentPage(7)}
+                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!riskGetiriTercihi ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={!riskGetiriTercihi}
+              >
+                DEVAM
+              </button>
+            </div>
+          </div>
+        )}
+
         {currentPage === 7 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex justify-center mt-4">
-              <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Aşağıdaki yatırım araçlarını değerlendirmek için bilginizi, işlem sıklığınızı ve hacminizi belirtin.</h1>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
             </div>
-            <div className="w-full flex flex-col items-center mt-8 space-y-4">
-              <h2 className="text-xl font-bold text-[#061178]">Çok Düşük Riskli (Repo-Ters Repo, BPP, Yatırımcı bilgi formunda risk değeri 1 olan yatırım fonları vb.)</h2>
-              {renderOptions(urunBilgisiA, setUrunBilgisiA, islemSikligiA, setIslemSikligiA, hacimBilgisiA, setHacimBilgisiA)}
+            <div className="text-center mb-8">
+              <h2 className="text-l font-semibold text-[#061178]">Çok Düşük Riskli (Repo-Ters Repo, BPP, Risk değeri 1 olan yatırım fonları vb.)</h2>
             </div>
+            {renderOptions(urunBilgisiA, setUrunBilgisiA, islemSikligiA, setIslemSikligiA, hacimBilgisiA, setHacimBilgisiA)}
             <div className="flex justify-center mt-8 space-x-4">
               <button onClick={() => setCurrentPage(6)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
                 GERİ
               </button>
               <button
                 onClick={() => setCurrentPage(8)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!urunBilgisiA || !islemSikligiA || !hacimBilgisiA ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+                  !urunBilgisiA || !islemSikligiA || !hacimBilgisiA ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
                 disabled={!urunBilgisiA || !islemSikligiA || !hacimBilgisiA}
               >
                 DEVAM
@@ -814,21 +816,23 @@ const riskdegree: React.FC = () => {
         )}
 
         {currentPage === 8 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex justify-center mt-4">
-              <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Aşağıdaki yatırım araçlarını değerlendirmek için bilginizi, işlem sıklığınızı ve hacminizi belirtin.</h1>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
             </div>
-            <div className="w-full flex flex-col items-center mt-8 space-y-4">
-              <h2 className="text-xl font-bold text-[#061178]">Düşük Riskli (Devlet tahvili, hazine bonosu, risk değeri 2 olan yatırım fonları vb.)</h2>
-              {renderOptions(urunBilgisiB, setUrunBilgisiB, islemSikligiB, setIslemSikligiB, hacimBilgisiB, setHacimBilgisiB)}
+            <div className="text-center mb-8">
+              <h2 className="text-l font-semibold text-[#061178]">Düşük Riskli (Devlet tahvili, hazine bonosu, Risk değeri 2 olan yatırım fonları vb.)</h2>
             </div>
+            {renderOptions(urunBilgisiB, setUrunBilgisiB, islemSikligiB, setIslemSikligiB, hacimBilgisiB, setHacimBilgisiB)}
             <div className="flex justify-center mt-8 space-x-4">
               <button onClick={() => setCurrentPage(7)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
                 GERİ
               </button>
               <button
                 onClick={() => setCurrentPage(9)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!urunBilgisiB || !islemSikligiB || !hacimBilgisiB ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+                  !urunBilgisiB || !islemSikligiB || !hacimBilgisiB ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
                 disabled={!urunBilgisiB || !islemSikligiB || !hacimBilgisiB}
               >
                 DEVAM
@@ -838,21 +842,23 @@ const riskdegree: React.FC = () => {
         )}
 
         {currentPage === 9 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex justify-center mt-4">
-              <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Aşağıdaki yatırım araçlarını değerlendirmek için bilginizi, işlem sıklığınızı ve hacminizi belirtin.</h1>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
             </div>
-            <div className="w-full flex flex-col items-center mt-8 space-y-4">
-              <h2 className="text-xl font-bold text-[#061178]">Orta Riskli (Hisse senedi, Borsa Yatırım Fonları, Eurobond, Dövizli Tahviller,Yatırımcı bilgi formunda risk değeri 4 olan yatırım fonları vb.)</h2>
-              {renderOptions(urunBilgisiC, setUrunBilgisiC, islemSikligiC, setIslemSikligiC, hacimBilgisiC, setHacimBilgisiC)}
+            <div className="text-center mb-8">
+              <h2 className="text-l font-semibold text-[#061178]">Orta Riskli (Hisse senedi, Eurobond, Dövizli tahviller, Risk değeri 4 olan yatırım fonları vb.)</h2>
             </div>
+            {renderOptions(urunBilgisiC, setUrunBilgisiC, islemSikligiC, setIslemSikligiC, hacimBilgisiC, setHacimBilgisiC)}
             <div className="flex justify-center mt-8 space-x-4">
               <button onClick={() => setCurrentPage(8)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
                 GERİ
               </button>
               <button
                 onClick={() => setCurrentPage(10)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!urunBilgisiC || !islemSikligiC || !hacimBilgisiC ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+                  !urunBilgisiC || !islemSikligiC || !hacimBilgisiC ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
                 disabled={!urunBilgisiC || !islemSikligiC || !hacimBilgisiC}
               >
                 DEVAM
@@ -862,21 +868,23 @@ const riskdegree: React.FC = () => {
         )}
 
         {currentPage === 10 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex justify-center mt-4">
-              <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Aşağıdaki yatırım araçlarını değerlendirmek için bilginizi, işlem sıklığınızı ve hacminizi belirtin.</h1>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
             </div>
-            <div className="w-full flex flex-col items-center mt-8 space-y-4">
-              <h2 className="text-xl font-bold text-[#061178]">Yüksek Riskli (Türev İşlemler, Varant,  Yatırımcı bilgi formunda risk değeri 5 ve 6 olan yatırım fonları vb.)</h2>
-              {renderOptions(urunBilgisiD, setUrunBilgisiD, islemSikligiD, setIslemSikligiD, hacimBilgisiD, setHacimBilgisiD)}
+            <div className="text-center mb-8">
+              <h2 className="text-l font-semibold text-[#061178]">Yüksek Riskli (Türev İşlemler, Varant, Risk değeri 5 ve 6 olan yatırım fonları vb.)</h2>
             </div>
+            {renderOptions(urunBilgisiD, setUrunBilgisiD, islemSikligiD, setIslemSikligiD, hacimBilgisiD, setHacimBilgisiD)}
             <div className="flex justify-center mt-8 space-x-4">
               <button onClick={() => setCurrentPage(9)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
                 GERİ
               </button>
               <button
                 onClick={() => setCurrentPage(11)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!urunBilgisiD || !islemSikligiD || !hacimBilgisiD ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+                  !urunBilgisiD || !islemSikligiD || !hacimBilgisiD ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
                 disabled={!urunBilgisiD || !islemSikligiD || !hacimBilgisiD}
               >
                 DEVAM
@@ -886,21 +894,23 @@ const riskdegree: React.FC = () => {
         )}
 
         {currentPage === 11 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex justify-center mt-4">
-              <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Aşağıdaki yatırım araçlarını değerlendirmek için bilginizi, işlem sıklığınızı ve hacminizi belirtin.</h1>
+          <div className="relative z-10">
+            <div className="text-center mb-8">
+              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
             </div>
-            <div className="w-full flex flex-col items-center mt-8 space-y-4">
-              <h2 className="text-xl font-bold text-[#061178]">Çok Yüksek Riskli (Tezgahüstü Türev İşlemler, Kaldıraçlı İşlemler , Yatırımcı bilgi formunda risk değeri 7 olan yatırım fonları vb.)</h2>
-              {renderOptions(urunBilgisiE, setUrunBilgisiE, islemSikligiE, setIslemSikligiE, hacimBilgisiE, setHacimBilgisiE)}
+            <div className="text-center mb-8">
+              <h2 className="text-l font-semibold text-[#061178]">Çok Yüksek Riskli (Tezgahüstü Türev İşlemler, Kaldıraçlı İşlemler , Risk değeri 7 olan yatırım fonları vb.)</h2>
             </div>
+            {renderOptions(urunBilgisiE, setUrunBilgisiE, islemSikligiE, setIslemSikligiE, hacimBilgisiE, setHacimBilgisiE)}
             <div className="flex justify-center mt-8 space-x-4">
               <button onClick={() => setCurrentPage(10)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
                 GERİ
               </button>
               <button
                 onClick={() => setCurrentPage(12)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!urunBilgisiE || !islemSikligiE || !hacimBilgisiE ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+                  !urunBilgisiE || !islemSikligiE || !hacimBilgisiE ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
                 disabled={!urunBilgisiE || !islemSikligiE || !hacimBilgisiE}
               >
                 DEVAM
@@ -909,7 +919,7 @@ const riskdegree: React.FC = () => {
           </div>
         )}
 
-        {currentPage === 12 && (
+{currentPage === 12 && (
           <div className="flex items-center justify-center min-h-screen p-4 bg-gray-100 overflow-hidden">
             <div className="w-full max-w-[1000px] p-4 rounded bg-gradient-to-r from-blue-100 to-gray-100 shadow-md box-border overflow-auto">
               <h2 className="font-bold text-lg text-black text-center">YASAL UYARI</h2>
