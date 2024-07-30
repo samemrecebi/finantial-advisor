@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backimage-service
+spec:
+  selector:
+    app: backimage
+  ports:
+    - protocol: TCP
+      port: 3001
+  type: LoadBalancer

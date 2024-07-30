@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backimage-deployment
+  labels:
+    app: backimage
+spec:
+  selector:
+    matchLabels:
+      app: backimage
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: backimage
+    spec:
+      containers:
+      - name: backimage
+        image: yigitpekgoz/backimage:latest
+        ports:
+        - containerPort: 3001
