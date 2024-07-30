@@ -40,7 +40,7 @@ function HomePage() {
                   <Image src="/logo.png" alt="Wealthify" width={100} height={100} />
                   <div className="flex flex-col">
                     <div className="text-white text-sm font-bold">Wealthify</div>
-                    <div className="text-white text-[10px] font-bold">Finans Asistanınız</div>
+                    <div className="text-white text-[10px] font-bold">Finans AI Asistanınız</div>
                   </div>
                 </div>
               </a>
@@ -96,7 +96,7 @@ function HomePage() {
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           <div className="text-center">
             <h1 className="text-4xl font-bold tracking-tight text-blue-900 sm:text-6xl">
-              Bir sonraki yatırımlarınızı ve daha fazlasını yeni Finansal asistanınımız ile bulun.
+              Bir sonraki yatırımlarınızı ve daha fazlasını yeni Finansal AI asistanınınız ile bulun.
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-900">Başlamak için kayıt olun</p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -134,27 +134,27 @@ function HomePage() {
           <h3 className="text-5xl font-bold text-white mb-20">Özellikler</h3>
           <div className="space-y-40">
             <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
-              <h4 className="text-3xl font-bold mb-2 text-white">Yatırım önerileri</h4>
-              <p className="text-white">Finansal AI asistanımız size en uygun yatırım önerilerini sunar.</p>
+              <h4 className="text-3xl font-bold mb-2 text-white">Yatırım Önerileri</h4>
+              <p className="text-white">Finansal AI asistanınız, yatırım hedeflerinize göre en uygun stratejileri önerir.</p>
             </div>
             <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
-              <h4 className="text-3xl font-bold mb-2 text-white">Risk derecesi değerlendirmesi</h4>
-              <p className="text-white">Finansal AI asistanımız size özel yatırımcı risk analizini yapar ve en uygun önerileri sunar.</p>
+              <h4 className="text-3xl font-bold mb-2 text-white">Risk Derecesi Değerlendirmesi</h4>
+              <p className="text-white">Finansal AI asistanınız, kişisel risk profilinize göre yatırım analizleri yapar ve size en uygun planları sunar.</p>
             </div>
             <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
-              <h4 className="text-3xl font-bold mb-2 text-white">Finansal analizler</h4>
+              <h4 className="text-3xl font-bold mb-2 text-white">Gerçek Zamanlı Piyasa Verileri</h4>
+              <p className="text-white">DenizYatirim günlük bülten verileri sayesinde her zaman güncel kalın.</p>
+            </div>
+            <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
+              <h4 className="text-3xl font-bold mb-2 text-white">Finansal Analizler</h4>
               <p className="text-white">Geniş veri analizi ile finansal durumunuzu değerlendirin.</p>
             </div>
             <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
-              <h4 className="text-3xl font-bold mb-2 text-white">Gerçek zamanlı piyasa verileri</h4>
-              <p className="text-white">Anlık piyasa verileri ile her zaman güncel kalın.</p>
-            </div>
-            <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
-              <h4 className="text-3xl font-bold mb-2 text-white">Kişiselleştirilmiş danışmanlık</h4>
+              <h4 className="text-3xl font-bold mb-2 text-white">Kişiselleştirilmiş Danışmanlık</h4>
               <p className="text-white">Size özel finansal danışmanlık hizmetleri alın.</p>
             </div>
             <div className="bg-indigo-800 rounded-lg p-8 shadow-lg transition transform hover:scale-105 hover:bg-indigo-900">
-              <h4 className="text-3xl font-bold mb-2 text-white">Portföy yönetimi</h4>
+              <h4 className="text-3xl font-bold mb-2 text-white">Portföy Yönetimi</h4>
               <p className="text-white">Portföyünüzü etkili bir şekilde yönetin ve optimize edin.</p>
             </div>
           </div>
