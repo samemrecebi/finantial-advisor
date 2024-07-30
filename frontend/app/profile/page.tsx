@@ -47,9 +47,26 @@ const ProfilePage = () => {
                             <stop offset="0%" stopColor="#1D39C4" /> 
                             <stop offset="100%" stopColor="#030852" />
                         </linearGradient>
+                        <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#FFFFFF" />
+                            <stop offset="100%" stopColor="#F0F0F0" />
+                        </linearGradient>
+                        <filter id="circleShadow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feDropShadow dx="0" dy="10" stdDeviation="10" floodColor="#000" floodOpacity="0.3" />
+                        </filter>
                     </defs>
                     <circle cx="1250" cy="350" r="1000" fill="url(#gradient)" />
-                    <circle cx="50%" cy="24%" r="120" fill="#FFFFFF" />
+                    <circle cx="50%" cy="24%" r="100" fill="url(#circleGradient)" filter="url(#circleShadow)" />
+                    <foreignObject x="43%" y="16%" width="200px" height="200px">
+                        <div className="flex justify-center items-center">
+                            <Image
+                                src="/usericon.png" // Ensure this path is correct
+                                alt="User Icon"
+                                width={120} 
+                                height={120} 
+                            />
+                        </div>
+                    </foreignObject>
                     <foreignObject x="5" y="2" width="150px" height="150px">
                         <div>
                         <Link href="/chat-screen">
@@ -61,11 +78,7 @@ const ProfilePage = () => {
                             />
                             </Link>
                         </div>
-
                     </foreignObject>
-
-
-                    
                     <foreignObject x="41%" y="45%" width="240px" height="60px">
                         <div className="relative">
                             <label className="block text-white text-xs mb-1">Ad</label>
@@ -130,7 +143,6 @@ const ProfilePage = () => {
                             Profili Düzenle
                         </div>
                     </foreignObject>
-                    
                 </svg>
             </div>
         </div>
