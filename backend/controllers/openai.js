@@ -28,54 +28,92 @@ const searchClient = new SearchClient(
   new AzureKeyCredential(searchApiKey)
 );
 
+// Server message
+const serverMessage = `
+Wealthify yatırımcılarının sorunlarını çözen ve onlara yardımcı olan uzman yatırımcı asistanı bir yapay zeka sohbet botusunuz. Göreviniz, size yöneltilen borsa,ekonomi,para birimi kurları,yatırım,yatırım tavsiyesi vb. alanlardaki sorulara verilen datalar üzerinden ve yorumlayarak cevap vermektir. "borsa,ekonomi,yatırım,yatırım tavsiyesi vb." alanlarıyla ilgili olmayan sorulara "Bu konuda yardımcı olamam.Üzgünüm." yanıtını vereceksin. Ayrıca yatırımcılarla sohbet ettiğiniz için yanıtınız profesyonel, bilgilendirici, açıklayıcı ve samimi olmalıdır.
+ 
+Resmi Dil Kullanımı:
+Yanıtlar profesyonel ve resmi bir dil kullanılarak formüle edilmelidir. Ancak aynı zamanda samimi de olmalıdır.
+Yalnızca Türkçe dilinde cevaplar vereceksin.
+
+
+Doğru Belge Eşleştirmesi:
+Sorulan sorulara sana verilen kaynaklar üzerinden referans vererek ve tarih gözeterek uygun cevapları vereceksin.
+ Soruda sana verilen tarihin yazdığı pdf kaynak üzerinden bilgiler ile cevap vereceksin.
+ Karşılaştırma sorularında sorunun içerisinde özel bir tarih belirtilmediyse her zaman en güncel tarihli dokümandan veriler ile cevap ver.
+Alıntı yapılan dokümanı verdiğin cevap içerisinde belirtme.
+Yanıt Biçimi:
+Eğer aldigin mesaj kullaniciya ait  ilk mesaj ise "Merhaba, Wealthify yatırım asistanına hoşgeldiniz. Size nasıl yardımcı olabilirim?" cevabı ile dönmelisin, eger kullanicidan gelen ilk mesaj bir soru iceriyorsa selamlama cumlesinden sonra soruya yanit vermelisin.
+ Vereceğin cevaplarda "gerekirse bir finansal danışmana danışınız" cümlesini kullanma. Onun yerine "Başka hangi konularda yardımcı olabilirim?" olarak cevap ver
+Yanıtlar doğrudan kullanıcının sorgusuna odaklanmalı ve gereksiz bilgi içermemelidir.
+Yanıt Süreci:
+Belirsiz veya aşırı genel sorgular söz konusu olduğunda, modelin sorguyu netleştirmek için daha fazla bilgi talep etmesi uygun olabilir.
+Kullanıcıya yardımcı olmak için gerektiğinde birden fazla soru sormaktan çekinme.
+Yanıtların doğruluğunu ve güvenilirliğini sağlamak için gerektiğinde kaynakları kontrol et.
+
+Örnekler:{
+  role: 'user',
+  content: 'Hangi konularda yardımcı olabilirsin?',
+},
+{
+  role: 'assistant',
+  content: 'Wealthify yatırım asistanınız olarak, finansal kararlarınızı daha bilinçli ve etkili bir şekilde almanıza yardımcı oluyorum. Piyasa trendlerini takip eder, hisse senedi analizleri sunar ve portföyünüzü optimize etmeniz için önerilerde bulunurum. Ayrıca, risk toleransınızı değerlendirerek size özel yatırım stratejileri oluşturur ve finansal hedeflerinize ulaşmanız için yol gösteririm.',
+},
+{
+  role: 'user',
+  content: 'Çeşitlendirilmiş portföy nedir?',
+},
+{
+  role: 'assistant',
+  content: 'Çeşitlendirilmiş bir portföy, hisse senetleri, tahviller, gayrimenkuller ve emtialar gibi çeşitli varlık sınıfları ve yatırım türlerinin bir karışımını içerir. Amaç, yatırımları piyasa olaylarına aynı şekilde tepki vermeyebilecek farklı varlıklara yayarak riski azaltmaktır. Çeşitlendirme, bir alandaki kayıpları başka bir alandaki kazançlarla azaltmaya yardımcı olur, böylece zaman içinde daha istikrarlı getiriler elde edilir.',
+},
+`;
+
 // Few-shot examples to guide the model
 const fewShotExamples = [
   {
     role: 'user',
-    content: '1000 dolar ile hangi hisse senetlerine yatırım yapmalıyım?',
+    content: 'Hangi konularda yardımcı olabilirsin?',
   },
   {
     role: 'assistant',
-    content: '1000 dolar ile yatırım yaparken çeşitlendirilmiş bir portföy oluşturmak önemlidir. Teknoloji sektöründe Apple (AAPL) ve Microsoft (MSFT) gibi büyük firmaların hisseleri güvenli olabilir. Sağlık sektöründe Pfizer (PFE) ve Johnson & Johnson (JNJ) iyi seçeneklerdir. Ayrıca, büyüme potansiyeli olan küçük ölçekli firmaların hisselerini de değerlendirebilirsiniz. Yatırım yapmadan önce mutlaka araştırma yapın ve risk toleransınızı göz önünde bulundurun.',
+    content: 'Wealthify yatırım asistanınız olarak, finansal kararlarınızı daha bilinçli ve etkili bir şekilde almanıza yardımcı oluyorum. Piyasa trendlerini takip eder, hisse senedi analizleri sunar ve portföyünüzü optimize etmeniz için önerilerde bulunurum. Ayrıca, risk toleransınızı değerlendirerek size özel yatırım stratejileri oluşturur ve finansal hedeflerinize ulaşmanız için yol gösteririm.',
   },
   {
     role: 'user',
-    content: 'Şu an en iyi döviz kuru nedir?',
+    content: 'Çeşitlendirilmiş portföy nedir?',
   },
   {
     role: 'assistant',
-    content: 'Güncel döviz kurları sürekli değişmektedir. Şu an için en iyi döviz kuru bilgisi almak için döviz kurları sağlayıcılarından veya bankaların web sitelerinden güncel verilere bakabilirsiniz. Örneğin, USD/TRY kuru şu an 32.50 seviyesinde.',
+    content: 'Çeşitlendirilmiş bir portföy, hisse senetleri, tahviller, gayrimenkuller ve emtialar gibi çeşitli varlık sınıfları ve yatırım türlerinin bir karışımını içerir. Amaç, yatırımları piyasa olaylarına aynı şekilde tepki vermeyebilecek farklı varlıklara yayarak riski azaltmaktır. Çeşitlendirme, bir alandaki kayıpları başka bir alandaki kazançlarla azaltmaya yardımcı olur, böylece zaman içinde daha istikrarlı getiriler elde edilir.',
   },
 ];
 
-// Function to call Azure OpenAI API
-const callOpenAIApi = async (messages) => {
-  // Transform messages to the format expected by the OpenAI API
-  const transformedMessages = messages.map((message) => ({
-    role: message.isUser ? 'user' : 'assistant',
-    content: message.text,
-  }));
-
+// Function to call Azure OpenAI API with retry mechanism
+const callOpenAIApi = async (messages, retries = 3) => {
   const payload = {
-    messages: [
-      {
-        role: 'system',
-        content: 'Sen bir yatırım danışmanısın ve kullanıcılara finansal konular hakkında tavsiyeler vermekle görevlisin. Kullanıcılara hisse senetleri, döviz kurları ve yatırım stratejileri hakkında güncel bilgiler sağlamalısın. Güncel döviz kurlarını ve piyasa verilerini kullanarak önerilerde bulun. Finansal terimleri ve kavramları anlaşılır bir şekilde açıklamaya çalış. Finans dışındaki konular hakkında sorulara "Bu konuda yardımcı olamam." diye yanıt ver.',
-      },
-      ...fewShotExamples,
-      ...transformedMessages,
-    ],
-    temperature: 0.7,
+    messages,
+    temperature: 0.5,
     top_p: 0.95,
-    max_tokens: 4096,
+    max_tokens: 800,
   };
 
   try {
     const response = await axios.post(GPT4V_ENDPOINT, payload, { headers });
     return response.data;
   } catch (error) {
-    console.error(`Failed to make the request. Error: ${error.message}`);
-    throw error;
+    if (error.response && error.response.status === 429 && retries > 0) {
+      // If rate limited, wait and retry
+      const waitTime = Math.pow(2, 3 - retries) * 1000; // Exponential backoff
+      await new Promise((resolve) => setTimeout(resolve, waitTime));
+      return callOpenAIApi(messages, retries - 1);
+    } else if (error.response && error.response.status === 400) {
+      console.error(`Bad request error: ${JSON.stringify(error.response.data, null, 2)}`);
+      throw error;
+    } else {
+      console.error(`Failed to make the request. Error: ${error.message}`);
+      throw error;
+    }
   }
 };
 
@@ -106,28 +144,62 @@ router.post('/chat', async (req, res) => {
 
   try {
     // Extract the latest user message for search query
-    const latestUserMessage = messages.filter((message) => message.isUser).pop().text;
+    const latestUserMessage = messages.filter((message) => message.isUser).pop();
+    if (!latestUserMessage || !latestUserMessage.text) {
+      return res.status(400).json({ error: 'No valid user message for search query' });
+    }
+
+    //console.log('Latest user message:', latestUserMessage.text);
 
     // Query the search index
-    const searchResults = await querySearchIndex(latestUserMessage);
-
+    const searchResults = await querySearchIndex(latestUserMessage.text);
+    // Sort the search results by score
+    const sortedResults = searchResults.sort((a, b) => b.score - a.score);
+    console.log('Search results:', searchResults);
+    
     // Prepare the additional information from search results
-    const additionalInfo = searchResults.map((result) => result.document.content).join('\n');
+    let additionalInfo = sortedResults.map((result) => result.document.content).join('\n');
+
+    //console.log('Additional information:', additionalInfo);
+
+    // Summarize the additional information if it's too long
+    if (additionalInfo.length > 20000) {
+      additionalInfo = additionalInfo.slice(0, 20000) + '...'; // Simplify for demo purposes
+    }
+
+   // console.log('Summarized additional information:', additionalInfo);
 
     // Add the additional information to the OpenAI messages
-    const openAIMessages = [
-      ...messages,
+    let openAIMessages = [
       {
-        isUser: false,
-        text: `Here is some additional information based on your query:\n${additionalInfo}`,
+        role: 'system',
+        content: serverMessage,
       },
+      ...messages.map(message => ({
+        role: message.isUser ? 'user' : 'assistant',
+        content: message.text,
+      })),
+      {
+        role: 'assistant',
+        content: `Here is some additional information based on your query:\n${additionalInfo}`,
+      },
+      //...fewShotExamples,
     ];
 
     // Call OpenAI API with the enriched messages
     const openAIResponse = await callOpenAIApi(openAIMessages);
+
+    console.log('OpenAI response:', openAIResponse);
+
     res.json(openAIResponse);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to get a response from OpenAI' });
+    if (error.response && error.response.status === 400) {
+      console.error(`Bad request error: ${JSON.stringify(error.response.data, null, 2)}`);
+      res.status(400).json({ error: error.response.data });
+    } else {
+      console.error('Failed to get a response from OpenAI:', error.message);
+      res.status(500).json({ error: 'Failed to get a response from OpenAI' });
+    }
   }
 });
 
