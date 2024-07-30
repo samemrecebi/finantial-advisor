@@ -44,12 +44,17 @@ function ProfilePage() {
 
     fetchUserData();
   }, []);
+
   const redirectToChat = () => {
     router.push('/chat-screen'); // Adjust this route according to your Next.js setup
   };
 
   const redirectToEdit = () => {
     router.push('/profile-edit'); // Adjust this route according to your Next.js setup
+  };
+
+  const redirectToRiskDegree = () => {
+    router.push('/riskdegree'); // Adjust this route according to your Next.js setup
   };
 
   return (
@@ -67,6 +72,28 @@ function ProfilePage() {
       </div>
       <div className="basis-1/3 flex justify-center items-center">
         <form className="space-y-3">
+          <label className="block text-blue-900 text-xs mb-1">
+            Risk Derecesi
+            {user.risk_degree ? (
+              <input
+                type="text"
+                placeholder={user.risk_degree}
+                className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
+                style={{ backgroundColor: '#D6E4FF' }}
+                disabled
+              />
+            ) : (
+              <button
+                type="button"
+                className="w-full h-full px-4 py-2 text-black rounded border border-gray-300 focus:outline-none focus:border-blue-500 text-left"
+                style={{ backgroundColor: '#D6E4FF' }}
+                onClick={redirectToRiskDegree}
+              >
+                Risk analizi testini tamamlamak için tıklayınız.
+              </button>
+            )}
+          </label>
+
           <label className="block text-blue-900 text-xs mb-1">
             Ad
             <input
@@ -110,7 +137,6 @@ function ProfilePage() {
               disabled
             />
           </label>
-
         </form>
       </div>
       <div className="basis-1/3">
