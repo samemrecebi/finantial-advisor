@@ -58,7 +58,7 @@ Yanıtların doğruluğunu ve güvenilirliğini sağlamak için gerektiğinde ka
 },
 {
   role: 'assistant',
-  content: 'Wealthify yatırım asistanınız olarak, finansal kararlarınızı daha bilinçli ve etkili bir şekilde almanıza yardımcı oluyorum. Piyasa trendlerini takip eder, hisse senedi analizleri sunar ve portföyünüzü optimize etmeniz için önerilerde bulunurum. Ayrıca, risk toleransınızı değerlendirerek size özel yatırım stratejileri oluşturur ve finansal hedeflerinize ulaşmanız için yol gösteririm.',
+  content: 'Wealthify finansal AI asistanınız olarak, finansal kararlarınızı daha bilinçli ve etkili bir şekilde almanıza yardımcı oluyorum. Piyasa trendlerini takip eder, hisse senedi analizleri sunar ve portföyünüzü optimize etmeniz için önerilerde bulunurum. Ayrıca, risk toleransınızı değerlendirerek size özel yatırım stratejileri oluşturur ve finansal hedeflerinize ulaşmanız için yol gösteririm.',
 },
 {
   role: 'user',
@@ -78,7 +78,7 @@ const fewShotExamples = [
   },
   {
     role: 'assistant',
-    content: 'Wealthify yatırım asistanınız olarak, finansal kararlarınızı daha bilinçli ve etkili bir şekilde almanıza yardımcı oluyorum. Piyasa trendlerini takip eder, hisse senedi analizleri sunar ve portföyünüzü optimize etmeniz için önerilerde bulunurum. Ayrıca, risk toleransınızı değerlendirerek size özel yatırım stratejileri oluşturur ve finansal hedeflerinize ulaşmanız için yol gösteririm.',
+    content: 'Wealthify finansal AI asistanınız olarak, finansal kararlarınızı daha bilinçli ve etkili bir şekilde almanıza yardımcı oluyorum. Piyasa trendlerini takip eder, hisse senedi analizleri sunar ve portföyünüzü optimize etmeniz için önerilerde bulunurum. Ayrıca, risk toleransınızı değerlendirerek size özel yatırım stratejileri oluşturur ve finansal hedeflerinize ulaşmanız için yol gösteririm.',
   },
   {
     role: 'user',
@@ -164,8 +164,8 @@ router.post('/chat', authenticateToken, async (req, res) => {
     //console.log('Additional information:', additionalInfo);
 
     // Summarize the additional information if it's too long
-    if (additionalInfo.length > 20000) {
-      additionalInfo = additionalInfo.slice(0, 20000) + '...'; // Simplify for demo purposes
+    if (additionalInfo.length > 10000) {
+      additionalInfo = additionalInfo.slice(0, 10000) + '...'; // Simplify for demo purposes
     }
 
    // console.log('Summarized additional information:', additionalInfo);
