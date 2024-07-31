@@ -367,15 +367,6 @@ const riskdegree: React.FC = () => {
         )}
 
 
-          <div className="flex justify-center mt-8">
-              <button
-                  onClick={() => setCurrentPage(0)}
-                  className="bg-[#061178] text-white px-6 py-3 rounded shadow-lg hover:bg-[#1d39c4] transition duration-300 ease-in-out">
-                  TESTİ ÇÖZ
-              </button>
-          </div>
-      </div>
-)}
 
 {currentPage === 0 && (
 <div className="text-center mb-8">
