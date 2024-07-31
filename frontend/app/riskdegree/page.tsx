@@ -129,7 +129,7 @@ const riskdegree: React.FC = () => {
     setHacimBilgisi: React.Dispatch<React.SetStateAction<string | null>>
   ) => (
     <div className="w-full flex justify-around">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center space-y-4">
         <h3 className="text-lg font-semibold text-[#061178]">Ürün Bilgisi</h3>
         <div
           onClick={() => setUrunBilgisi('Ürün Hakkında Bilgim Yok')}
@@ -162,8 +162,8 @@ const riskdegree: React.FC = () => {
           </p>
         </div>
       </div>
-
-      <div className="flex flex-col items-center">
+  
+      <div className="flex flex-col items-center space-y-4">
         <h3 className="text-lg font-semibold text-[#061178]">İşlem Sıklığı</h3>
         <div
           onClick={() => setIslemSikligi('Nadiren (Yılda Birkaç Defa)')}
@@ -196,8 +196,8 @@ const riskdegree: React.FC = () => {
           </p>
         </div>
       </div>
-
-      <div className="flex flex-col items-center">
+  
+      <div className="flex flex-col items-center space-y-4">
         <h3 className="text-lg font-semibold text-[#061178]">Hacim Bilgisi (TL)</h3>
         <div
           onClick={() => setHacimBilgisi('1 - 50.000')}
@@ -232,6 +232,7 @@ const riskdegree: React.FC = () => {
       </div>
     </div>
   );
+  
 
   const riskColors: { [key: number]: string } = {
     1: 'bg-[#008000]',
@@ -337,587 +338,640 @@ const riskdegree: React.FC = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#F0F5FF] to-[#D6E4FF] min-h-screen flex flex-col items-center justify-center py-16 relative">
-      <svg className="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <ellipse cx="720" cy="160" rx="700" ry="600" stroke="#ADC6FF" strokeWidth="4" fill="none" />
-      </svg>
-      <div className="relative z-10">
-        {currentPage === -1 && (
+    <svg className="absolute top-0 left-0 w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <ellipse cx="720" cy="160" rx="700" ry="600" stroke="#ADC6FF" strokeWidth="4" fill="none" />
+    </svg>
+    <div className="relative z-10">
+
+{currentPage === -1 && (
           <div className="flex flex-col items-center p-8 space-y-6 bg-gradient-to-r from-[#D6E4FF] to-[#2F54EB] rounded-xl shadow-xl w-[700px]">
-            <h1 className="text-4xl font-extrabold text-center text-white mb-6">RİSK ANALİZİ</h1>
-            <h1 className="text-xl font-bold text-center">
-              Yatırım dünyasında doğru adımları atmak için risk seviyenizi analiz edin ve size özel stratejilerle öne çıkın!
-            </h1>
-            <div className="flex justify-center mt-8">
+          <h1 className="text-4xl font-extrabold text-center text-white mb-6">RİSK ANALİZİ</h1>
+          <h1 className="text-xl text-black font-bold text-center">Yatırım dünyasında doğru adımları atmak için risk seviyenizi analiz edin ve size özel stratejilerle öne çıkın!</h1>
+
+          <div className="flex justify-center mt-8">
               <button
-                onClick={() => setCurrentPage(0)}
-                className="bg-[#061178] text-white px-6 py-3 rounded shadow-lg hover:bg-[#1d39c4] transition duration-300 ease-in-out"
-              >
-                TESTİ ÇÖZ
+                  onClick={() => setCurrentPage(0)}
+                  className="bg-[#061178] text-white px-6 py-3 rounded shadow-lg hover:bg-[#1d39c4] transition duration-300 ease-in-out">
+                  TESTİ ÇÖZ
               </button>
-            </div>
           </div>
-        )}
+      </div>
+)}
 
-        {currentPage === 0 && (
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-[#061178] mb-8">Yatırımcı Tipi</h1>
-            <div className="flex justify-center space-x-12">
-              <div
-                onClick={() => setSelectedType('Genel Yatırımcı')}
-                className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                  selectedType === 'Genel Yatırımcı' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <div className="flex justify-center mb-4">
-                  <img src="/genelYatirimci.png" alt="Genel Yatırımcı" />
-                </div>
-                <p className={`text-center text-black ${selectedType === 'Genel Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>Genel Yatırımcı</p>
-              </div>
-              <div
-                onClick={() => setSelectedType('Nitelikli Yatırımcı')}
-                className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                  selectedType === 'Nitelikli Yatırımcı' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                }`}
-              >
-                <div className="flex justify-center mb-4">
-                  <img src="/nitelik.png" alt="Nitelikli Yatırımcı" />
-                </div>
-                <p className={`text-center text-black ${selectedType === 'Nitelikli Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>Nitelikli Yatırımcı</p>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button
-                onClick={() => setCurrentPage(1)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded transition-opacity duration-300 ${
-                  !selectedType ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!selectedType}
-              >
-                DEVAM
-              </button>
-            </div>
+{currentPage === 0 && (
+<div className="text-center mb-8">
+  <h1 className="text-3xl font-bold text-[#061178] mb-8">Yatırımcı Tipi</h1>
+  <div className="flex justify-center space-x-12">
+    <div
+      onClick={() => setSelectedType('Genel Yatırımcı')}
+      className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+        selectedType === 'Genel Yatırımcı' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <div className="flex justify-center mb-4">
+        <img src="/genelYatirimci.png" alt="Genel Yatırımcı" />
+      </div>
+      <p className={`text-center ${selectedType === 'Genel Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>
+        Genel Yatırımcı
+      </p>
+    </div>
+    <div
+      onClick={() => setSelectedType('Nitelikli Yatırımcı')}
+      className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+        selectedType === 'Nitelikli Yatırımcı' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <div className="flex justify-center mb-4">
+        <img src="/nitelik.png" alt="Nitelikli Yatırımcı" />
+      </div>
+      <p className={`text-center ${selectedType === 'Nitelikli Yatırımcı' ? 'text-[#061178]' : 'text-black'}`}>
+        Nitelikli Yatırımcı
+      </p>
+    </div>
+  </div>
+  <div className="flex justify-center mt-8 space-x-4">
+    <button
+      onClick={() => {
+        if (selectedType) {
+          setCurrentPage(1);
+        } else {
+          alert("Lütfen bir yatırımcı tipi seçiniz.");
+        }
+      }}
+      className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded transition-opacity duration-300 ${!selectedType ? 'opacity-50 cursor-not-allowed' : ''}`}
+      disabled={!selectedType}
+    >
+      DEVAM
+    </button>
+  </div>
+</div>
+)}
+
+
+
+
+{
+currentPage === 1 && (
+  <div className="relative z-10">
+    <div className="text-center mb-8">
+      <h1 className="text-3xl font-bold text-[#061178]">Yatırım Hedefiniz</h1>
+    </div>
+    <div className="flex flex-col items-center mb-8">
+      {/* Top row */}
+      <div className="flex justify-center space-x-8 mb-8">
+        <div
+          onClick={() => setYatirimHedefi('sermayeKoruma')}
+          className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+            yatirimHedefi === 'sermayeKoruma' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <img src="/sermayekoruma.png" alt="Sermaye Koruma" className="mb-4" />
+          <p className={`text-center ${yatirimHedefi === 'sermayeKoruma' ? 'text-[#061178]' : 'text-black'}`}>
+            Sermayemi korumak
+          </p>
+        </div>
+        <div
+          onClick={() => setYatirimHedefi('duzenliGelir')}
+          className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+            yatirimHedefi === 'duzenliGelir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <img src="/duzenligelir.png" alt="Düzenli Gelir" className="mb-4" />
+          <p className={`text-center ${yatirimHedefi === 'duzenliGelir' ? 'text-[#061178]' : 'text-black'}`}>
+            Düzenli gelir elde etmek
+          </p>
+        </div>
+        <div
+          onClick={() => setYatirimHedefi('uzunVadeBuyume')}
+          className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+            yatirimHedefi === 'uzunVadeBuyume' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <img src="/uzunvadebuyume.png" alt="Uzun Vadede Büyüme" className="mb-4" />
+          <p className={`text-center ${yatirimHedefi === 'uzunVadeBuyume' ? 'text-[#061178]' : 'text-black'}`}>
+            Uzun vadede büyüme sağlamak
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom row */}
+      <div className="flex justify-center space-x-8">
+        <div
+          onClick={() => setYatirimHedefi('emeklilik')}
+          className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+            yatirimHedefi === 'emeklilik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <img src="/emekli.png" alt="Emeklilik Birikimi" className="mb-4" />
+          <p className={`text-center ${yatirimHedefi === 'emeklilik' ? 'text-[#061178]' : 'text-black'}`}>
+            Emeklilik için birikim yapmak
+          </p>
+        </div>
+        <div
+          onClick={() => setYatirimHedefi('yuksekGetiri')}
+          className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+            yatirimHedefi === 'yuksekGetiri' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <img src="risklibuyume.png" alt="Riskle Yüksek Getiri" className="mb-4" />
+          <p className={`text-center ${yatirimHedefi === 'yuksekGetiri' ? 'text-[#061178]' : 'text-black'}`}>
+            Risk alarak yüksek getiri sağlamak
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="flex justify-center mt-8 space-x-4">
+      <button onClick={() => setCurrentPage(0)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+      <button
+        onClick={() => setCurrentPage(2)}
+        className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!yatirimHedefi ? 'opacity-50 cursor-not-allowed' : ''}`}
+        disabled={!yatirimHedefi}
+      >
+        DEVAM
+      </button>
+    </div>
+  </div>
+)
+}
+
+{currentPage === 2 && (
+<div className="text-center mb-8">
+  <h1 className="text-2xl font-bold text-[#061178] mb-8">
+    Tercih ettiğiniz <span className="text-red-600">risk seviyesi</span> nedir?
+  </h1>
+  <div className="flex flex-wrap justify-center mb-8 gap-8">
+    {[1, 2, 3, 4, 5, 6, 7].map((risk) => (
+      <div
+        key={risk}
+        onClick={() => handleRiskSelection(risk)}
+        className={`flex flex-col items-center cursor-pointer ${
+          selectedRisk === risk 
+            ? 'border-1 border-[#061178]  shadow-[#061178] shadow-lg' 
+            : 'border-gray-300'
+        }`}
+      >
+        <div
+          className={`flex items-center justify-center ${riskColors[risk]} ${selectedRisk === risk ? 'text-white' : 'text-black'}`}
+          style={{ height: riskSizes[risk].replace('h-', '') + 'px', width: '80px', marginTop: `${200 - parseInt(riskSizes[risk].replace('h-', ''))}px` }} // Fixed width and dynamic height
+        >
+          <div
+            className={`w-16 rounded-full ${selectedRisk === risk ? 'border-white' : 'border-black'}`}
+          >
+            {/* Box for the risk level */}
           </div>
-        )}
+        </div>
+        <div className={`mt-2 ${selectedRisk === risk ? 'text-[#061178]' : 'text-[#061178]'}`}>
+          {risk}
+        </div>
+      </div>
+    ))}
+  </div>
+  <div className="text-center mb-8">
+    <h2 className="text-xl font-bold text-[#061178] mb-4">
+      Risk Değeri <span className="text-3xl font-extrabold text-[#061178]">{selectedRisk}</span>
+    </h2>
+    <p className="text-black">{riskDescriptions[selectedRisk ?? 1]}</p>
+  </div>
+  <div className="flex justify-center mt-8 space-x-4">
+    <button onClick={() => setCurrentPage(1)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+    <button
+      onClick={() => setCurrentPage(3)}
+      className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!selectedRisk ? 'opacity-50 cursor-not-allowed' : ''}`}
+      disabled={!selectedRisk}
+    >
+      DEVAM
+    </button>
+  </div>
+</div>
+)}
 
-        {currentPage === 1 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Yatırım Hedefiniz</h1>
-            </div>
-            <div className="flex flex-col items-center mb-8">
-              <div className="flex justify-center space-x-8 mb-8">
-                <div
-                  onClick={() => setYatirimHedefi('sermayeKoruma')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    yatirimHedefi === 'sermayeKoruma' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/sermayekoruma.png" alt="Sermaye Koruma" className="mb-4" />
-                  <p className={`text-center text-black ${yatirimHedefi === 'sermayeKoruma' ? 'text-[#061178]' : 'text-black'}`}>Sermayemi korumak</p>
-                </div>
-                <div
-                  onClick={() => setYatirimHedefi('duzenliGelir')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    yatirimHedefi === 'duzenliGelir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/duzenligelir.png" alt="Düzenli Gelir" className="mb-4" />
-                  <p className={`text-center text-black ${yatirimHedefi === 'duzenliGelir' ? 'text-[#061178]' : 'text-black'}`}>Düzenli gelir elde etmek</p>
-                </div>
-                <div
-                  onClick={() => setYatirimHedefi('uzunVadeBuyume')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    yatirimHedefi === 'uzunVadeBuyume' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/uzunvadebuyume.png" alt="Uzun Vadede Büyüme" className="mb-4" />
-                  <p className={`text-center text-black ${yatirimHedefi === 'uzunVadeBuyume' ? 'text-[#061178]' : 'text-black'}`}>Uzun vadede büyüme sağlamak</p>
-                </div>
-              </div>
 
-              <div className="flex justify-center space-x-8">
-                <div
-                  onClick={() => setYatirimHedefi('emeklilik')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    yatirimHedefi === 'emeklilik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/emekli.png" alt="Emeklilik Birikimi" className="mb-4" />
-                  <p className={`text-center text-black ${yatirimHedefi === 'emeklilik' ? 'text-[#061178]' : 'text-black'}`}>Emeklilik için birikim yapmak</p>
-                </div>
-                <div
-                  onClick={() => setYatirimHedefi('yuksekGetiri')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    yatirimHedefi === 'yuksekGetiri' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="risklibuyume.png" alt="Riskle Yüksek Getiri" className="mb-4" />
-                  <p className={`text-center text-black ${yatirimHedefi === 'yuksekGetiri' ? 'text-[#061178]' : 'text-black'}`}>Risk alarak yüksek getiri sağlamak</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(0)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(2)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!yatirimHedefi ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!yatirimHedefi}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
 
-        {currentPage === 2 && (
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-[#061178] mb-8">
-              Tercih Ettiğiniz <span className="text-red-600">Risk Seviyesi</span>
-            </h1>
-            <div className="flex flex-wrap justify-center mb-8 gap-8">
-              {[1, 2, 3, 4, 5, 6, 7].map((risk) => (
-                <div
-                  key={risk}
-                  onClick={() => handleRiskSelection(risk)}
-                  className={`flex flex-col items-center cursor-pointer ${selectedRisk === risk ? 'border-[#061178]' : 'border-gray-300'}`}
-                >
-                  <div
-                    className={`flex items-center justify-center ${riskColors[risk]} ${selectedRisk === risk ? 'text-white' : 'text-black'}`}
-                    style={{ height: riskSizes[risk].replace('h-', '') + 'px', width: '80px', marginTop: `${200 - parseInt(riskSizes[risk].replace('h-', ''))}px` }} // Fixed width and dynamic height
-                  >
-                    <div className={`w-16 rounded-full ${selectedRisk === risk ? 'border-white' : 'border-black'}`}>{/* Box for the risk level */}</div>
-                  </div>
-                  <div className={`mt-2 ${selectedRisk === risk ? 'text-[#061178]' : 'text-[#061178]'}`}>{risk}</div>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mb-8">
-              <h2 className="text-xl font-bold text-[#061178] mb-4">
-                Risk Değeri <span className="text-3xl font-extrabold text-[#061178]">{selectedRisk}</span>
-              </h2>
-              <p className="text-black">{riskDescriptions[selectedRisk ?? 1]}</p>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(1)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(3)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!selectedRisk ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!selectedRisk}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+{currentPage === 3 && (
+<div className="relative z-10">
+  <div className="text-center mb-8">
+    <h1 className="text-3xl font-bold text-[#061178]">Planladığınız Yatırım Süresi</h1>
+  </div>
+  <div className="flex flex-col items-center mb-8">
+    {/* Top row */}
+    <div className="flex justify-center space-x-8 mb-8">
+      <div
+        onClick={() => setSelectedTime('birOtuzGun')}
+        className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+          selectedTime === 'birOtuzGun' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <img src="/tekAy.png" alt="1 - 30 Gün" className="mb-4" />
+        <p className={`text-center ${selectedTime === 'birOtuzGun' ? 'text-[#061178]' : 'text-black'}`}>
+          1 - 30 Gün
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedTime('birUcAy')}
+        className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+          selectedTime === 'birUcAy' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <img src="/birUcAy.png" alt="1 - 3 Ay" className="mb-4" />
+        <p className={`text-center ${selectedTime === 'birUcAy' ? 'text-[#061178]' : 'text-black'}`}>
+          1 - 3 Ay
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedTime('ucAltiAy')}
+        className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+          selectedTime === 'ucAltiAy' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <img src="/ucAltiAy.png" alt="3 - 6 Ay" className="mb-4" />
+        <p className={`text-center ${selectedTime === 'ucAltiAy' ? 'text-[#061178]' : 'text-black'}`}>
+          3 - 6 Ay
+        </p>
+      </div>
+    </div>
 
-        {currentPage === 3 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Planladığınız Yatırım Süresi</h1>
-            </div>
-            <div className="flex flex-col items-center mb-8">
-              <div className="flex justify-center space-x-8 mb-8">
-                <div
-                  onClick={() => setSelectedTime('birOtuzGun')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    selectedTime === 'birOtuzGun' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/birOtuzGun.png" alt="1 - 30 Gün" className="mb-4" />
-                  <p className={`text-center text-black ${selectedTime === 'birOtuzGun' ? 'text-[#061178]' : 'text-black'}`}>1 - 30 Gün</p>
-                </div>
-                <div
-                  onClick={() => setSelectedTime('birUcAy')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    selectedTime === 'birUcAy' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/birUcAy.png" alt="1 - 3 Ay" className="mb-4" />
-                  <p className={`text-center text-black ${selectedTime === 'birUcAy' ? 'text-[#061178]' : 'text-black'}`}>1 - 3 Ay</p>
-                </div>
-                <div
-                  onClick={() => setSelectedTime('ucAltiAy')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    selectedTime === 'ucAltiAy' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/ucAltiAy.png" alt="3 - 6 Ay" className="mb-4" />
-                  <p className={`text-center text-black ${selectedTime === 'ucAltiAy' ? 'text-[#061178]' : 'text-black'}`}>3 - 6 Ay</p>
-                </div>
-              </div>
+    {/* Bottom row */}
+    <div className="flex justify-center space-x-8">
+      <div
+        onClick={() => setSelectedTime('altiAyBirYil')}
+        className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+          selectedTime === 'altiAyBirYil' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <img src="/altiAyBirYil.png" alt="6 Ay - 1 Yıl" className="mb-4" />
+        <p className={`text-center ${selectedTime === 'altiAyBirYil' ? 'text-[#061178]' : 'text-black'}`}>
+          6 Ay - 1 Yıl
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedTime('birYil')}
+        className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
+          selectedTime === 'birYil' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <img src="/birYil.png" alt="1 Yıl ve Daha Fazlası" className="mb-4" />
+        <p className={`text-center ${selectedTime === 'birYil' ? 'text-[#061178]' : 'text-black'}`}>
+          1 Yıl ve Üzeri
+        </p>
+      </div>
+    </div>
+  </div>
+  <div className="flex justify-center mt-8 space-x-4">
+    <button onClick={() => setCurrentPage(2)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+    <button
+      onClick={() => setCurrentPage(4)}
+      className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!selectedTime ? 'opacity-50 cursor-not-allowed' : ''}`}
+      disabled={!selectedTime}
+    >
+      DEVAM
+    </button>
+  </div>
+</div>
+)}
 
-              <div className="flex justify-center space-x-8">
-                <div
-                  onClick={() => setSelectedTime('altiAyBirYil')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    selectedTime === 'altiAyBirYil' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/altiAyBirYil.png" alt="6 Ay - 1 Yıl" className="mb-4" />
-                  <p className={`text-center text-black ${selectedTime === 'altiAyBirYil' ? 'text-[#061178]' : 'text-black'}`}>6 Ay - 1 Yıl</p>
-                </div>
-                <div
-                  onClick={() => setSelectedTime('birYil')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    selectedTime === 'birYil' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <img src="/birYil.png" alt="1 Yıl ve Daha Fazlası" className="mb-4" />
-                  <p className={`text-center text-black ${selectedTime === 'birYil' ? 'text-[#061178]' : 'text-black'}`}>1 Yıl ve Üzeri</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(2)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(4)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!selectedTime ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!selectedTime}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+{currentPage === 4 && (
+<div className="relative z-10 w-full flex flex-col items-center">
+  <div className="w-full flex items-center justify-between">
+    <div className="pl-16">
+      <h1 className="text-3xl font-bold text-[#061178] relative" style={{ right: '-5rem', width: 'fit-content', maxWidth: 'calc(100% - 10rem)', whiteSpace: 'normal' }}>
+        Planladığınız Yatırım Miktarı
+      </h1>
+    </div>
+    <div className="flex flex-col items-end mb-8 space-y-4 pr-12" style={{ transform: 'translateX(-5rem)' }}>
+      {/* All boxes */}
+      <div
+        onClick={() => setSelectedMoney('onbineksi')}
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+          selectedMoney === 'onbineksi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <p className={`text-center ${selectedMoney === 'onbineksi' ? 'text-[#061178]' : 'text-black'}`}>
+          10.000₺'ye kadar
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedMoney('onyuz')}
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+          selectedMoney === 'onyuz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <p className={`text-center ${selectedMoney === 'onyuz' ? 'text-[#061178]' : 'text-black'}`}>
+          10.000₺ - 100.000₺
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedMoney('yuzbirm')}
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+          selectedMoney === 'yuzbirm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <p className={`text-center ${selectedMoney === 'yuzbirm' ? 'text-[#061178]' : 'text-black'}`}>
+          100.000₺ - 1.000.000₺
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedMoney('bironm')}
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+          selectedMoney === 'bironm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <p className={`text-center ${selectedMoney === 'bironm' ? 'text-[#061178]' : 'text-black'}`}>
+          1.000.000₺ - 10.000.000₺
+        </p>
+      </div>
+      <div
+        onClick={() => setSelectedMoney('onm')}
+        className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-80 h-16 flex items-center justify-center transition-colors ${
+          selectedMoney === 'onm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+        }`}
+      >
+        <p className={`text-center ${selectedMoney === 'onm' ? 'text-[#061178]' : 'text-black'}`}>
+          10.000.000₺ ve üzeri
+        </p>
+      </div>
+    </div>
+  </div>
+  <div className="flex justify-center mt-8 space-x-4">
+    <button onClick={() => setCurrentPage(3)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+    <button
+      onClick={() => setCurrentPage(5)}
+      className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!selectedMoney ? 'opacity-50 cursor-not-allowed' : ''}`}
+      disabled={!selectedMoney}
+    >
+      DEVAM
+    </button>
+  </div>
+</div>
+)}
 
-        {currentPage === 4 && (
-          <div className="relative z-10 w-full flex flex-col items-center">
-            <div className="w-full flex items-center justify-between">
-              <div className="pl-16">
-                <h1
-                  className="text-3xl font-bold text-[#061178] relative"
-                  style={{ right: '-5rem', width: 'fit-content', maxWidth: 'calc(100% - 10rem)', whiteSpace: 'normal' }}
-                >
-                  Planladığınız Yatırım Miktarı
-                </h1>
-              </div>
-              <div className="flex flex-col items-end mb-8 space-y-4 pr-12" style={{ transform: 'translateX(-5rem)' }}>
-                <div
-                  onClick={() => setSelectedMoney('onbineksi')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
-                    selectedMoney === 'onbineksi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${selectedMoney === 'onbineksi' ? 'text-[#061178]' : 'text-black'}`}>10.000₺'ye kadar</p>
-                </div>
-                <div
-                  onClick={() => setSelectedMoney('onyuz')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
-                    selectedMoney === 'onyuz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${selectedMoney === 'onyuz' ? 'text-[#061178]' : 'text-black'}`}>10.000₺ - 100.000₺</p>
-                </div>
-                <div
-                  onClick={() => setSelectedMoney('yuzbirm')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
-                    selectedMoney === 'yuzbirm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${selectedMoney === 'yuzbirm' ? 'text-[#061178]' : 'text-black'}`}>100.001₺ - 1.000.000₺</p>
-                </div>
-                <div
-                  onClick={() => setSelectedMoney('bironm')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
-                    selectedMoney === 'bironm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${selectedMoney === 'bironm' ? 'text-[#061178]' : 'text-black'}`}>1.000.001₺ - 10.000.000₺</p>
-                </div>
-                <div
-                  onClick={() => setSelectedMoney('onm')}
-                  className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-60 h-16 flex items-center justify-center transition-colors ${
-                    selectedMoney === 'onm' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${selectedMoney === 'onm' ? 'text-[#061178]' : 'text-black'}`}>10.000.000₺ ve üzeri</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(3)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(5)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!selectedMoney ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!selectedMoney}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
 
-        {currentPage === 5 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Beklenmedik Bir Piyasa Dalgalanmasında Tepkiniz</h1>
-            </div>
-            <div className="flex flex-col items-center mb-8">
-              <div className="flex justify-center space-x-8 mb-8">
-                <div
-                  onClick={() => handleAniDurum('panik')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    aniDurum === 'panik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${aniDurum === 'panik' ? 'text-[#061178]' : 'text-black'}`}>Panik yapar satarım</p>
-                </div>
-                <div
-                  onClick={() => handleAniDurum('durumDegerlendirmesi')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    aniDurum === 'durumDegerlendirmesi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${aniDurum === 'durumDegerlendirmesi' ? 'text-[#061178]' : 'text-black'}`}>Durumu değerlendiririm</p>
-                </div>
-                <div
-                  onClick={() => handleAniDurum('sabir')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    aniDurum === 'sabir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${aniDurum === 'sabir' ? 'text-[#061178]' : 'text-black'}`}>Sabırla beklerim</p>
-                </div>
-              </div>
+{currentPage === 5 && (
+<div className="relative z-10 w-full flex flex-col items-center overflow-hidden">
+  {/* Centered Header */}
+  <div className="w-full flex justify-center mt-4">
+  <h1 className="text-3xl font-bold text-[#061178] mt-[-1rem]">Risk-Getiri Tercihiniz</h1>
 
-              <div className="flex justify-center space-x-8">
-                <div
-                  onClick={() => handleAniDurum('fayda')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    aniDurum === 'fayda' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${aniDurum === 'fayda' ? 'text-[#061178]' : 'text-black'}`}>Durumu faydaya çevirecek kararlar alırım</p>
-                </div>
-                <div
-                  onClick={() => handleAniDurum('hareketsiz')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    aniDurum === 'hareketsiz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${aniDurum === 'hareketsiz' ? 'text-[#061178]' : 'text-black'}`}>Hareketsiz kalırım</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(4)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(6)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!aniDurum ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!aniDurum}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+  </div>
+  <div className="w-full flex flex-col items-center mt-8 space-y-4">
+    {/* All boxes */}
+    <div
+      onClick={() => setRiskGetiriTercihi('anaParaKoru')}
+      className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
+        riskGetiriTercihi === 'anaParaKoru' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <p className={`text-center ${riskGetiriTercihi === 'anaParaKoru' ? 'text-[#061178]' : 'text-black'}`}>
+        Anaparam aynen korunsun.
+      </p>
+    </div>
+    <div
+      onClick={() => setRiskGetiriTercihi('anaParaAzKayip')}
+      className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
+        riskGetiriTercihi === 'anaParaAzKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <p className={`text-center ${riskGetiriTercihi === 'anaParaAzKayip' ? 'text-[#061178]' : 'text-black'}`}>
+    
+        Anaparadan çok az bir miktar kaybetmeyi göze alabilirim.
+      </p>
+    </div>
+    <div
+      onClick={() => setRiskGetiriTercihi('anaParaMiktarKayip')}
+      className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
+        riskGetiriTercihi === 'anaParaMiktarKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <p className={`text-center ${riskGetiriTercihi === 'anaParaMiktarKayip' ? 'text-[#061178]' : 'text-black'}`}>
+        Anaparadan bir miktar kaybetmeyi
+        göze alabilirim.
+      </p>
+    </div>
+    <div
+      onClick={() => setRiskGetiriTercihi('anaParaKayip')}
+      className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
+        riskGetiriTercihi === 'anaParaKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <p className={`text-center ${riskGetiriTercihi === 'anaParaKayip' ? 'text-[#061178]' : 'text-black'}`}>
+        Anaparadan kaybetmeyi
+        göze alabilirim.
+      </p>
+    </div>
+    <div
+      onClick={() => setRiskGetiriTercihi('anaParaTamamenKayip')}
+      className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[30rem] h-50 flex items-center justify-center transition-colors ${
+        riskGetiriTercihi === 'anaParaTamamenKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+      }`}
+    >
+      <p className={`text-center ${riskGetiriTercihi === 'anaParaTamamenKayip' ? 'text-[#061178]' : 'text-black'}`}>
+        Anaparayı
+        tamamen kaybetmeyi göze alabilirim.
+      </p>
+    </div>
+  </div>
+  <div className="flex justify-center mt-8 space-x-4">
+    <button onClick={() => setCurrentPage(4)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+    <button
+      onClick={() => setCurrentPage(6)}
+      className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!riskGetiriTercihi ? 'opacity-50 cursor-not-allowed' : ''}`}
+      disabled={!riskGetiriTercihi}
+    >
+      DEVAM
+    </button>
+  </div>
+</div>
+)}
 
-        {currentPage === 6 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Risk - Getiri Tercihiniz</h1>
-            </div>
-            <div className="flex flex-col items-center mb-8">
-              <div className="flex justify-center space-x-8 mb-8">
-                <div
-                  onClick={() => handleRiskGetiriTercihi('anaParaKoru')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    riskGetiriTercihi === 'anaParaKoru' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaKoru' ? 'text-[#061178]' : 'text-black'}`}>Anaparayı koru</p>
-                </div>
-                <div
-                  onClick={() => handleRiskGetiriTercihi('anaParaAzKayip')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    riskGetiriTercihi === 'anaParaAzKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaAzKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana paradan az miktarda kayıp olabilir</p>
-                </div>
-                <div
-                  onClick={() => handleRiskGetiriTercihi('anaParaMiktarKayip')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    riskGetiriTercihi === 'anaParaMiktarKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaMiktarKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana paradan kayıp olabilir</p>
-                </div>
-              </div>
+{currentPage === 6 && (
+<div className="relative z-10 w-full flex flex-col items-center">
+  <div className="w-full flex items-center justify-between">
+    <div className="pl-16">
+      <h1 className="text-3xl font-bold text-[#061178] relative" style={{ right: '-8rem', width: 'fit-content', maxWidth: 'calc(100% - 20rem)', whiteSpace: 'normal' }}>
+        Beklenmedik bir piyasa dalgalanmasında tepkiniz ne olur?
+      </h1>
+    </div>
+    <div className="flex flex-col items-end mb-8 space-y-4 pr-12" style={{ transform: 'translateX(-10rem)' }}>
+      <div className="grid grid-cols-1 gap-4">
+        <div
+          onClick={() => setAniDurum('panik')}
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
+            aniDurum === 'panik' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <p className={`text-center ${aniDurum === 'panik' ? 'text-[#061178]' : 'text-black'}`}>
+            Panikle satış yaparım.
+          </p>
+        </div>
+        <div
+          onClick={() => setAniDurum('durumDegerlendirmesi')}
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
+            aniDurum === 'durumDegerlendirmesi' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <p className={`text-center ${aniDurum === 'durumDegerlendirmesi' ? 'text-[#061178]' : 'text-black'}`}>
+            Durumu değerlendirir ve gerekirse aksiyon alırım.
+          </p>
+        </div>
+        <div
+          onClick={() => setAniDurum('sabir')}
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
+            aniDurum === 'sabir' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <p className={`text-center ${aniDurum === 'sabir' ? 'text-[#061178]' : 'text-black'}`}>
+            Sabırlı olur ve piyasaların toparlanmasını beklerim.
+          </p>
+        </div>
+        <div
+          onClick={() => setAniDurum('fayda')}
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
+            aniDurum === 'fayda' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <p className={`text-center ${aniDurum === 'fayda' ? 'text-[#061178]' : 'text-black'}`}>
+            Dalgalanmalardan faydalanmaya çalışırım.
+          </p>
+        </div>
+        <div
+          onClick={() => setAniDurum('hareketsiz')}
+          className={`border-4 rounded p-4 cursor-pointer hover:shadow-lg w-[35rem] h-16 flex items-center justify-center transition-colors ${
+            aniDurum === 'hareketsiz' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
+          }`}
+        >
+          <p className={`text-center ${aniDurum === 'hareketsiz' ? 'text-[#061178]' : 'text-black'}`}>
+            Hiçbir şey yapmam, yatırımımdan memnunum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="flex justify-center mt-8 space-x-4">
+    <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+    <button
+      onClick={() => setCurrentPage(7)}
+      className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!aniDurum ? 'opacity-50 cursor-not-allowed' : ''}`}
+      disabled={!aniDurum}
+    >
+      DEVAM
+    </button>
+  </div>
+</div>
+)}
+{
+  currentPage === 7 && (
+    <div className="relative z-10">
+      <div className="text-center mb-8">
+        <h1 className="text-xl font-bold text-[#061178] w-full max-w-[90%] mx-auto">Çok Düşük Riskli Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir? (Repo-Ters Repo, BPP, Risk değeri 1 olan yatırım fonları vb.)</h1>
+      </div>
+      {renderOptions(urunBilgisiA, setUrunBilgisiA, islemSikligiA, setIslemSikligiA, hacimBilgisiA, setHacimBilgisiA)}
+      <div className="flex justify-center mt-8 space-x-4">
+      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+        <button
+          onClick={() => setCurrentPage(8)}
+          className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+            !urunBilgisiA || !islemSikligiA || !hacimBilgisiA ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={!urunBilgisiA || !islemSikligiA || !hacimBilgisiA}
+        >
+          DEVAM
+        </button>
+      </div>
+    </div>
+  )
+}
 
-              <div className="flex justify-center space-x-8">
-                <div
-                  onClick={() => handleRiskGetiriTercihi('anaParaKayip')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    riskGetiriTercihi === 'anaParaKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana paradan kayıp olabilir, yüksek getiri isterim</p>
-                </div>
-                <div
-                  onClick={() => handleRiskGetiriTercihi('anaParaTamamenKayip')}
-                  className={`border-4 rounded-lg p-8 cursor-pointer hover:shadow-lg w-60 h-48 flex flex-col items-center justify-center transition-colors ${
-                    riskGetiriTercihi === 'anaParaTamamenKayip' ? 'border-[#061178] bg-[#E3E9FF]' : 'border-[#ADC6FF]'
-                  }`}
-                >
-                  <p className={`text-center text-black ${riskGetiriTercihi === 'anaParaTamamenKayip' ? 'text-[#061178]' : 'text-black'}`}>Ana para tamamen kayıp olabilir</p>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(5)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(7)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${!riskGetiriTercihi ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={!riskGetiriTercihi}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+{
+  currentPage === 8 && (
+    <div className="relative z-10">
+      <div className="text-center mb-8">
+        <h1 className="text-xl font-bold text-[#061178] w-full max-w-[90%] mx-auto">Düşük Riskli Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir? (Devlet tahvili, hazine bonosu, Risk değeri 2 olan yatırım fonları vb.)</h1>
+      </div>
+      {renderOptions(urunBilgisiB, setUrunBilgisiB, islemSikligiB, setIslemSikligiB, hacimBilgisiB, setHacimBilgisiB)}
+      <div className="flex justify-center mt-8 space-x-4">
+      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+        <button
+          onClick={() => setCurrentPage(9)}
+          className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+            !urunBilgisiB || !islemSikligiB || !hacimBilgisiB ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={!urunBilgisiB || !islemSikligiB || !hacimBilgisiB}
+        >
+          DEVAM
+        </button>
+      </div>
+    </div>
+  )
+}
 
-        {currentPage === 7 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
-            </div>
-            <div className="text-center mb-8">
-              <h2 className="text-l font-semibold text-[#061178]">Çok Düşük Riskli (Repo-Ters Repo, BPP, Risk değeri 1 olan yatırım fonları vb.)</h2>
-            </div>
-            {renderOptions(urunBilgisiA, setUrunBilgisiA, islemSikligiA, setIslemSikligiA, hacimBilgisiA, setHacimBilgisiA)}
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(6)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(8)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
-                  !urunBilgisiA || !islemSikligiA || !hacimBilgisiA ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!urunBilgisiA || !islemSikligiA || !hacimBilgisiA}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+{
+  currentPage === 9 && (
+    <div className="relative z-10">
+      <div className="text-center mb-8">
+        <h1 className="text-xl font-bold text-[#061178] w-full max-w-[90%] mx-auto">Orta Riskli Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir? (Hisse senedi, Eurobond, Dövizli tahviller, Risk değeri 4 olan yatırım fonları vb.)</h1>
+      </div>
+      {renderOptions(urunBilgisiC, setUrunBilgisiC, islemSikligiC, setIslemSikligiC, hacimBilgisiC, setHacimBilgisiC)}
+      <div className="flex justify-center mt-8 space-x-4">
+      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+        <button
+          onClick={() => setCurrentPage(10)}
+          className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+            !urunBilgisiC || !islemSikligiC || !hacimBilgisiC ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={!urunBilgisiC || !islemSikligiC || !hacimBilgisiC}
+        >
+          DEVAM
+        </button>
+      </div>
+    </div>
+  )
+}
 
-        {currentPage === 8 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
-            </div>
-            <div className="text-center mb-8">
-              <h2 className="text-l font-semibold text-[#061178]">Düşük Riskli (Devlet tahvili, hazine bonosu, Risk değeri 2 olan yatırım fonları vb.)</h2>
-            </div>
-            {renderOptions(urunBilgisiB, setUrunBilgisiB, islemSikligiB, setIslemSikligiB, hacimBilgisiB, setHacimBilgisiB)}
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(7)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(9)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
-                  !urunBilgisiB || !islemSikligiB || !hacimBilgisiB ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!urunBilgisiB || !islemSikligiB || !hacimBilgisiB}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+{
+  currentPage === 10 && (
+    <div className="relative z-10">
+      <div className="text-center mb-8">
+        <h1 className="text-xl font-bold text-[#061178] w-full max-w-[90%] mx-auto">Yüksek Riskli Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir? (Türev İşlemler, Varant, Risk değeri 5 ve 6 olan yatırım fonları vb.)</h1>
+      </div>
+      {renderOptions(urunBilgisiD, setUrunBilgisiD, islemSikligiD, setIslemSikligiD, hacimBilgisiD, setHacimBilgisiD)}
+      <div className="flex justify-center mt-8 space-x-4">
+      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+        <button
+          onClick={() => setCurrentPage(11)}
+          className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+            !urunBilgisiD || !islemSikligiD || !hacimBilgisiD ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={!urunBilgisiD || !islemSikligiD || !hacimBilgisiD}
+        >
+          DEVAM
+        </button>
+      </div>
+    </div>
+  )
+}
 
-        {currentPage === 9 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
-            </div>
-            <div className="text-center mb-8">
-              <h2 className="text-l font-semibold text-[#061178]">Orta Riskli (Hisse senedi, Eurobond, Dövizli tahviller, Risk değeri 4 olan yatırım fonları vb.)</h2>
-            </div>
-            {renderOptions(urunBilgisiC, setUrunBilgisiC, islemSikligiC, setIslemSikligiC, hacimBilgisiC, setHacimBilgisiC)}
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(8)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(10)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
-                  !urunBilgisiC || !islemSikligiC || !hacimBilgisiC ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!urunBilgisiC || !islemSikligiC || !hacimBilgisiC}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
+{
+  currentPage === 11 && (
+    <div className="relative z-10">
+      <div className="text-center mb-8">
+        <h1 className="text-xl font-bold text-[#061178] w-full max-w-[90%] mx-auto">Çok Yüksek Riskli Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir? (Tezgahüstü Türev İşlemler, Kaldıraçlı İşlemler , Risk değeri 7 olan yatırım fonları vb.)</h1>
+      </div>
+      {renderOptions(urunBilgisiE, setUrunBilgisiE, islemSikligiE, setIslemSikligiE, hacimBilgisiE, setHacimBilgisiE)}
+      <div className="flex justify-center mt-8 space-x-4">
+      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+        <button
+          onClick={() => setCurrentPage(12)}
+          className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
+            !urunBilgisiE || !islemSikligiE || !hacimBilgisiE ? 'opacity-50 cursor-not-allowed' : ''
+          }`}
+          disabled={!urunBilgisiE || !islemSikligiE || !hacimBilgisiE}
+        >
+          DEVAM
+        </button>
+      </div>
+    </div>
+  )
+}
 
-        {currentPage === 10 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
-            </div>
-            <div className="text-center mb-8">
-              <h2 className="text-l font-semibold text-[#061178]">Yüksek Riskli (Türev İşlemler, Varant, Risk değeri 5 ve 6 olan yatırım fonları vb.)</h2>
-            </div>
-            {renderOptions(urunBilgisiD, setUrunBilgisiD, islemSikligiD, setIslemSikligiD, hacimBilgisiD, setHacimBilgisiD)}
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(9)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(11)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
-                  !urunBilgisiD || !islemSikligiD || !hacimBilgisiD ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!urunBilgisiD || !islemSikligiD || !hacimBilgisiD}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
-
-        {currentPage === 11 && (
-          <div className="relative z-10">
-            <div className="text-center mb-8">
-              <h1 className="text-3xl font-bold text-[#061178]">Aşağıdaki Ürünlerle İlgili Bilgi ve Deneyim Düzeyiniz Nedir?</h1>
-            </div>
-            <div className="text-center mb-8">
-              <h2 className="text-l font-semibold text-[#061178]">Çok Yüksek Riskli (Tezgahüstü Türev İşlemler, Kaldıraçlı İşlemler , Risk değeri 7 olan yatırım fonları vb.)</h2>
-            </div>
-            {renderOptions(urunBilgisiE, setUrunBilgisiE, islemSikligiE, setIslemSikligiE, hacimBilgisiE, setHacimBilgisiE)}
-            <div className="flex justify-center mt-8 space-x-4">
-              <button onClick={() => setCurrentPage(10)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                GERİ
-              </button>
-              <button
-                onClick={() => setCurrentPage(12)}
-                className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
-                  !urunBilgisiE || !islemSikligiE || !hacimBilgisiE ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
-                disabled={!urunBilgisiE || !islemSikligiE || !hacimBilgisiE}
-              >
-                DEVAM
-              </button>
-            </div>
-          </div>
-        )}
 
 {currentPage === 12 && (
           <div className="flex items-center justify-center min-h-screen p-4 bg-gray-100 overflow-hidden">
@@ -942,9 +996,7 @@ const riskdegree: React.FC = () => {
                 </label>
               </div>
               <div className="flex justify-center space-x-4 mt-4">
-                <button onClick={() => setCurrentPage(11)} className="bg-[#ADC6FF] text-white px-6 py-2 rounded">
-                  GERİ
-                </button>
+              <button onClick={() => setCurrentPage(11)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
                 <button
                   onClick={() => {
                     handleCompleteTest(selectedType || '', selectedRisk, selectedTime || '', selectedMoney || '');
@@ -965,146 +1017,166 @@ const riskdegree: React.FC = () => {
             <div className="p-6 space-y-6 bg-gradient-to-r from-blue-200 to-gray-100 rounded-lg shadow-lg">
               <h1 className="text-3xl font-extrabold text-center text-[#061178] mb-4">Size Önerilerimiz</h1>
 
-              {riskPuani <= 12 && (
-                <div className="p-4 bg-green-100 rounded-lg shadow-md">
-                  <h2 className="text-xl font-semibold text-[#064e3b] flex items-center">
-                    <svg className="w-6 h-6 mr-2 text-[#064e3b]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Çok Düşük Riskli Yatırımlar
-                  </h2>
-                  <div className="mt-4 space-y-2">
-                    <div
-                      className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer"
-                      onClick={() => handleInvestmentClick('Repo-Ters Repo')}
-                    >
-                      Repo-Ters Repo
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('BPP')}>
-                      BPP
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 1 Olan Yatırım Fonları')}>
-                      Risk Değeri 1 Olan Yatırım Fonları
-                    </div>
-                  </div>
-                </div>
-              )}
+              
+  {riskPuani <= 12 && (
+    <div className="p-4 bg-green-100 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold text-[#064e3b] flex items-center">
+        <svg className="w-6 h-6 mr-2 text-[#064e3b]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Çok Düşük Riskli Yatırımlar
+      </h2>
+      <div className="mt-4 space-y-2">
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Repo-Ters Repo</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Repo-Ters Repo')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>BPP</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('BPP')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Risk Değeri 1 Olan Yatırım Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 1 Olan Yatırım Fonları')} />
+        </div>
+      </div>
+    </div>
+  )}
+ 
+  {riskPuani > 12 && riskPuani <= 23 && (
+    <div className="p-4 bg-yellow-100 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold text-[#856404] flex items-center">
+        <svg className="w-6 h-6 mr-2 text-[#856404]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Düşük Riskli Yatırımlar
+      </h2>
+      <div className="mt-4 space-y-2">
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Hazine Bonosu</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Hazine Bonosu')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Devlet Tahvili</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Devlet Tahvili')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Hazine Kira Sertifikaları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Hazine Kira Sertifikaları')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Risk Değeri 2 ve 3 Olan Yatırım Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 2 ve 3 Olan Yatırım Fonları')} />
+        </div>
+      </div>
+    </div>
+  )}
+  
+  {riskPuani > 23 && riskPuani <= 35 && (
+    <div className="p-4 bg-blue-100 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold text-[#1e40af] flex items-center">
+        <svg className="w-6 h-6 mr-2 text-[#1e40af]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Orta Riskli Yatırımlar
+      </h2>
+      <div className="mt-4 space-y-2">
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Hisse Senedi Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Hisse Senedi Fonları')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Borsa Yatırım Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Borsa Yatırım Fonları')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Eurobond</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Eurobond')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Dövizli Tahviller</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Dövizli Tahviller')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Özel Sektör Borçlanma Araçları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Özel Sektör Borçlanma Araçları')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Kira Sertifikaları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Kira Sertifikaları')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Risk Değeri 4 Olan Yatırım Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 4 Olan Yatırım Fonları')} />
+        </div>
+      </div>
+    </div>
+  )}
+  
+  {riskPuani > 35 && riskPuani <= 47 && (
+    <div className="p-4 bg-red-100 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold text-[#b91c1c] flex items-center">
+        <svg className="w-6 h-6 mr-2 text-[#b91c1c]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Yüksek Riskli Yatırımlar
+      </h2>
+      <div className="mt-4 space-y-2">
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Türev İşlemler</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Türev İşlemler')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Varant</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Varant')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Yatırım Kuruluşu Sertifikası</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Yatırım Kuruluşu Sertifikası')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Risk Değeri 5 ve 6 Olan Yatırım Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 5 ve 6 Olan Yatırım Fonları')} />
+        </div>
+      </div>
+    </div>
+  )}
+  
+  {riskPuani > 47 && (
+    <div className="p-4 bg-red-100 rounded-lg shadow-md">
+      <h2 className="text-xl font-semibold text-[#b91c1c] flex items-center">
+        <svg className="w-6 h-6 mr-2 text-[#b91c1c]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+        </svg>
+        Çok Yüksek Riskli Yatırımlar
+      </h2>
+      <div className="mt-4 space-y-2">
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Tezgahüstü Türev İşlemler</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Tezgahüstü Türev İşlemler')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Yapılandırılmış Borçlanma Araçları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Yapılandırılmış Borçlanma Araçları')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Kaldıraçlı Alım Satım İşlemleri - FX</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Kaldıraçlı Alım Satım İşlemleri - FX')} />
+        </div>
+        <div className="p-2 bg-white text-black rounded-lg shadow-sm flex justify-between items-center">
+          <span>Risk Değeri 7 Olan Yatırım Fonları</span>
+          <img src="/info.png" alt="info" className="w-4 h-4 cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 7 Olan Yatırım Fonları')} />
+        </div>
+      </div>
+    </div>
+  )}
 
-              {riskPuani > 12 && riskPuani <= 23 && (
-                <div className="p-4 bg-yellow-100 rounded-lg shadow-md">
-                  <h2 className="text-xl font-semibold text-[#856404] flex items-center">
-                    <svg className="w-6 h-6 mr-2 text-[#856404]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Düşük Riskli Yatırımlar
-                  </h2>
-                  <div className="mt-4 space-y-2">
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Hazine Bonosu')}>
-                      Hazine Bonosu
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Devlet Tahvili')}>
-                      Devlet Tahvili
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Hazine Kira Sertifikaları')}>
-                      Hazine Kira Sertifikaları
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 2 ve 3 Olan Yatırım Fonları')}>
-                      Risk Değeri 2 ve 3 Olan Yatırım Fonları
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {riskPuani > 23 && riskPuani <= 35 && (
-                <div className="p-4 bg-blue-100 rounded-lg shadow-md">
-                  <h2 className="text-xl font-semibold text-[#1e40af] flex items-center">
-                    <svg className="w-6 h-6 mr-2 text-[#1e40af]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Orta Riskli Yatırımlar
-                  </h2>
-                  <div className="mt-4 space-y-2">
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Hisse Senedi Fonları')}>
-                      Hisse Senedi Fonları
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Borsa Yatırım Fonları')}>
-                      Borsa Yatırım Fonları
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Eurobond')}>
-                      Eurobond
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Dövizli Tahviller')}>
-                      Dövizli Tahviller
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Özel Sektör Borçlanma Araçları')}>
-                      Özel Sektör Borçlanma Araçları
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Kira Sertifikaları')}>
-                      Kira Sertifikaları
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 4 Olan Yatırım Fonları')}>
-                      Risk Değeri 4 Olan Yatırım Fonları
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {riskPuani > 35 && riskPuani <= 47 && (
-                <div className="p-4 bg-red-100 rounded-lg shadow-md">
-                  <h2 className="text-xl font-semibold text-[#b91c1c] flex items-center">
-                    <svg className="w-6 h-6 mr-2 text-[#b91c1c]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Yüksek Riskli Yatırımlar
-                  </h2>
-                  <div className="mt-4 space-y-2">
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Türev İşlemler')}>
-                      Türev İşlemler
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Varant')}>
-                      Varant
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Yatırım Kuruluşu Sertifikası')}>
-                      Yatırım Kuruluşu Sertifikası
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 5 ve 6 Olan Yatırım Fonları')}>
-                      Risk Değeri 5 ve 6 Olan Yatırım Fonları
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {riskPuani > 47 && (
-                <div className="p-4 bg-red-100 rounded-lg shadow-md">
-                  <h2 className="text-xl font-semibold text-[#b91c1c] flex items-center">
-                    <svg className="w-6 h-6 mr-2 text-[#b91c1c]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Çok Yüksek Riskli Yatırımlar
-                  </h2>
-                  <div className="mt-4 space-y-2">
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Tezgahüstü Türev İşlemler')}>
-                      Tezgahüstü Türev İşlemler
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Yapılandırılmış Borçlanma Araçları')}>
-                      Yapılandırılmış Borçlanma Araçları
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Kaldıraçlı Alım Satım İşlemleri - FX')}>
-                      Kaldıraçlı Alım Satım İşlemleri - FX
-                    </div>
-                    <div className="p-2 bg-white text-black rounded-lg shadow-sm cursor-pointer" onClick={() => handleInvestmentClick('Risk Değeri 7 Olan Yatırım Fonları')}>
-                      Risk Değeri 7 Olan Yatırım Fonları
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {selectedInvestment && (
-                <div className="p-4 bg-white rounded-lg shadow-md mt-6">
-                  <h2 className="text-xl font-semibold text-[#061178]">{selectedInvestment}</h2>
-                  <p className="mt-2 text-black">{investmentDescriptions[selectedInvestment]}</p>
-                </div>
-              )}
+{selectedInvestment && (
+  <div className="p-4 bg-white rounded-lg shadow-md mt-6 w-full max-w-md">
+    <h2 className="text-xl font-semibold text-[#061178]">{selectedInvestment}</h2>
+    <p className="mt-2 text-black">{investmentDescriptions[selectedInvestment]}</p>
+  </div>
+)}
             </div>
             <div className="flex justify-center mt-8 space-x-4">
               <button
