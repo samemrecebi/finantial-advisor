@@ -3,9 +3,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import axios from 'axios';
 
 function SignInForm() {
   const router = useRouter();
+
+  async function fetchUserData(token: string, username: string) {
+    try {
+      const response = await axios.post(
+        '/api/users/getUserDetails',
+        { username }, // Pass username in the request body
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      // Handle error
+      return null;
+    }
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -22,9 +41,18 @@ function SignInForm() {
 
     if (response.ok) {
       const data = await response.json();
-      localStorage.setItem('username', formData.get('username')?.toString() ?? '');
-      localStorage.setItem('token', data.token);
-      router.push('/chat-screen');
+      const token = data.token;
+
+      localStorage.setItem('username', username?.toString() ?? '');
+      localStorage.setItem('token', token);
+
+      const user = await fetchUserData(token, username?.toString() ?? '');
+
+      if (user && user.risk_degree) {
+        router.push('/chat-screen');
+      } else {
+        router.push('/riskdegree');
+      }
     } else {
       // Handle errors
     }
@@ -32,7 +60,6 @@ function SignInForm() {
 
   return (
     <main className="flex items-center justify-center min-h-screen bg-gradient-to-r from-white to-indigo-400 text-white">
-      {/* Arka planı isterseniz sonra bir resim vs. ile değiştirebiliriz */}
       <div className="flex flex-col md:flex-row bg-gradient-to-r from-indigo-950 to-indigo-400 rounded-lg shadow-lg max-w-4xl w-full">
         <div className="w-full md:w-1/2 p-6">
           <div className="flex justify-between items-center mb-4">

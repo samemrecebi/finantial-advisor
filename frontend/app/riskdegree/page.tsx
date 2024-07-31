@@ -58,6 +58,7 @@ const riskdegree: React.FC = () => {
     setAniDurum(aniDurum);
   };
 
+
   const handleCompleteTest = (type: string, risk: number, time: string, money: string) => {
     let riskHesap = 0;
 
@@ -345,8 +346,26 @@ const riskdegree: React.FC = () => {
 
 {currentPage === -1 && (
           <div className="flex flex-col items-center p-8 space-y-6 bg-gradient-to-r from-[#D6E4FF] to-[#2F54EB] rounded-xl shadow-xl w-[700px]">
-          <h1 className="text-4xl font-extrabold text-center text-white mb-6">RİSK ANALİZİ</h1>
-          <h1 className="text-xl text-black font-bold text-center">Yatırım dünyasında doğru adımları atmak için risk seviyenizi analiz edin ve size özel stratejilerle öne çıkın!</h1>
+            <h1 className="text-4xl font-extrabold text-center text-white mb-6">RİSK ANALİZİ</h1>
+            <h1 className="text-xl font-bold text-center">
+              Yatırım dünyasında doğru adımları atmak için risk seviyenizi analiz edin ve size özel stratejilerle öne çıkın!
+            </h1>
+            <div className="flex justify-center mt-8 space-x-4">
+              <button
+                onClick={() => setCurrentPage(0)}
+                className="bg-[#061178] text-white px-6 py-3 rounded shadow-lg hover:bg-[#1d39c4] transition duration-300 ease-in-out"
+              >
+                TESTİ ÇÖZ
+              </button>
+              <Link href="/chat-screen" passHref>
+                <button className="bg-[#061178] text-white px-6 py-3 rounded shadow-lg hover:bg-[#1d39c4] transition duration-300 ease-in-out">
+                  DAHA SONRA ÇÖZ
+                </button>
+              </Link>
+            </div>
+          </div>
+        )}
+
 
           <div className="flex justify-center mt-8">
               <button
