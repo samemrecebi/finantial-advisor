@@ -865,7 +865,7 @@ currentPage === 1 && (
       </div>
       {renderOptions(urunBilgisiA, setUrunBilgisiA, islemSikligiA, setIslemSikligiA, hacimBilgisiA, setHacimBilgisiA)}
       <div className="flex justify-center mt-8 space-x-4">
-      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+      <button onClick={() => setCurrentPage(6)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
         <button
           onClick={() => setCurrentPage(8)}
           className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
@@ -888,7 +888,7 @@ currentPage === 1 && (
       </div>
       {renderOptions(urunBilgisiB, setUrunBilgisiB, islemSikligiB, setIslemSikligiB, hacimBilgisiB, setHacimBilgisiB)}
       <div className="flex justify-center mt-8 space-x-4">
-      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+      <button onClick={() => setCurrentPage(7)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
         <button
           onClick={() => setCurrentPage(9)}
           className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
@@ -911,7 +911,7 @@ currentPage === 1 && (
       </div>
       {renderOptions(urunBilgisiC, setUrunBilgisiC, islemSikligiC, setIslemSikligiC, hacimBilgisiC, setHacimBilgisiC)}
       <div className="flex justify-center mt-8 space-x-4">
-      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+      <button onClick={() => setCurrentPage(8)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
         <button
           onClick={() => setCurrentPage(10)}
           className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
@@ -934,7 +934,7 @@ currentPage === 1 && (
       </div>
       {renderOptions(urunBilgisiD, setUrunBilgisiD, islemSikligiD, setIslemSikligiD, hacimBilgisiD, setHacimBilgisiD)}
       <div className="flex justify-center mt-8 space-x-4">
-      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+      <button onClick={() => setCurrentPage(9)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
         <button
           onClick={() => setCurrentPage(11)}
           className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
@@ -957,7 +957,7 @@ currentPage === 1 && (
       </div>
       {renderOptions(urunBilgisiE, setUrunBilgisiE, islemSikligiE, setIslemSikligiE, hacimBilgisiE, setHacimBilgisiE)}
       <div className="flex justify-center mt-8 space-x-4">
-      <button onClick={() => setCurrentPage(5)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
+      <button onClick={() => setCurrentPage(10)} className=" text-black px-6 py-2 rounded border-2 border-[#000080]">GERİ</button>
         <button
           onClick={() => setCurrentPage(12)}
           className={`bg-gradient-to-r from-[#061178] to-[#1D39C4] text-white px-6 py-2 rounded ${
