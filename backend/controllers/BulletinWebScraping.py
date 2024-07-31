@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 # Azure Blob Storage connection string
-connect_str = "DefaultEndpointsProtocol=https;AccountName=rgacademy4str;AccountKey=Ad/3+rnVXNOqmuvtlBEEg/lywh2Uc7PGWYRRjlm78JZuGH5pngjRSeTQWvtHZn1dVZWNAKteK/Z1+AStWo0ZWA==;EndpointSuffix=core.windows.net"
+connect_str = ""
 bulletin_container_name = "bulletinpdfs"
 stocks_container_name = "stocks"
 crypto_container_name = "crypto"
