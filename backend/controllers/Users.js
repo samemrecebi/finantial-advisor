@@ -66,7 +66,7 @@ router.post('/register', async (req, res) => {
 
 
 // Update User API
-router.put('/update', authenticateToken, async (req, res) => {
+router.put('/update', async (req, res) => {
     try {
         const { username, password, first_name, last_name, risk_degree} = req.body;
 
