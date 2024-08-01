@@ -29,7 +29,7 @@ function ProfileEditPage() {
       if (!token || !username) return;
 
       try {
-        const response = await axios.post('http://localhost:3001/api/users/getUserDetails', { username }, {
+        const response = await axios.post('/api/users/getUserDetails', { username }, {
           headers: {
             Authorization: `${token}`,
           },
@@ -68,7 +68,7 @@ function ProfileEditPage() {
     }
 
     try {
-      await axios.put('http://localhost:3001/api/users/update', formData, {
+      await axios.put('/api/users/update', formData, {
         headers: {
           Authorization: `${token}`,
         },
