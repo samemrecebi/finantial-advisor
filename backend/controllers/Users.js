@@ -74,7 +74,7 @@ router.put('/update', async (req, res) => {
             return res.status(400).json({ message: "Username is required." });
         }
 
-        if (!password && !first_name && !last_name) {
+        if (!password && !first_name && !last_name && !risk_degree)  {
             return res.status(400).json({ message: "No valid field to update provided." });
         }
 
